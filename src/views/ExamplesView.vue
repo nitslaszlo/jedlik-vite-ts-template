@@ -103,14 +103,14 @@ function torolNap() {
         <v-col cols="12" md="6">
           <v-text-field
             v-model="r.nev"
-            :rules="[(v) => v.length <= 20 || 'Max 20 karakter!']"
+            :rules="[(v:String) => v.length <= 20 || 'Max 20 karakter!']"
             counter="20"
             hint="Maximum 20 karakter engedélyezett"
             label="Kérem a neved!"
           ></v-text-field>
           <v-text-field
             v-model="r.xek"
-            :rules="[(v) => v.length <= 10 || 'Irgum-burgum max 10 darab X!']"
+            :rules="[(v:String) => v.length <= 10 || 'Irgum-burgum max 10 darab X!']"
             counter="10"
             hint="Maximum 10 darab x engedélyezett"
             label="10 darab x"

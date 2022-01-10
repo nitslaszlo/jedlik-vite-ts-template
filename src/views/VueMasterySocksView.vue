@@ -7,7 +7,7 @@ interface IReactiveData {
 }
 const r = reactive<IReactiveData>({ cart: [], premium: true });
 
-function updateCart(id) {
+function updateCart(id: number) {
   r.cart.push(id);
   console.log(r.cart);
 }

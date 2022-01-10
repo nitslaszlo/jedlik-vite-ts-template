@@ -12,11 +12,16 @@ let checkedRowsIds = [];
 const searchTerm = ref(""); // Search text
 
 watch(searchTerm, () => {
-  doSearch("0", table.pageSize, table.sortable.order, table.sortable.sort);
+  doSearch(
+    "0",
+    table.pageSize.toString(),
+    table.sortable.order,
+    table.sortable.sort
+  );
 });
 
 onMounted(() => {
-  doSearch("0", 10, "title", "asc");
+  doSearch("0", "10", "title", "asc");
 });
 
 const table = reactive({
@@ -80,7 +85,12 @@ const table = reactive({
   },
   pageSize: 10,
 });
-const doSearch = (offset, limit, order, sort) => {
+const doSearch = (
+  offset: string,
+  limit: string,
+  order: string,
+  sort: string
+) => {
   store.dispatch("posts/fetchPaginatedPosts", {
     offset: offset,
     limit: limit,
