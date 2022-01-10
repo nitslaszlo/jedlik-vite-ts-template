@@ -13,6 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "sourceMap": true,
+    "noImplicitAny": false,
     "baseUrl": ".",
     "types": ["node", "@intlify/vite-plugin-vue-i18n/client", "vite/client"],
     "paths": {

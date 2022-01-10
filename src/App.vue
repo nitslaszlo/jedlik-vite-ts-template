@@ -1,73 +1,108 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-import HelloWorld from "./components/HelloWorld.vue";
+import { ref } from "vue";
+import { useDisplay } from "vuetify";
 
-const { t } = useI18n();
+const drawer = ref(false);
+const isMobileDevice = useDisplay().mobile.value;
+
+// Search icons: https://materialdesignicons.com/
+const menuItems = ref([
+  {
+    icon: "mdi-home",
+    text: "Home",
+    route: "/",
+  },
+  {
+    icon: "mdi-soccer",
+    text: "Examples",
+    route: "/examples",
+  },
+  {
+    icon: "mdi-table",
+    text: "v-table",
+    route: "/vtable",
+  },
+  {
+    icon: "mdi-table-refresh",
+    text: "vue3-table-light",
+    route: "/v3table",
+  },
+  {
+    icon: "mdi-cart-outline",
+    text: "Vue Mastery Socks",
+    route: "/socks",
+  },
+  {
+    icon: "mdi-grid",
+    text: "Grid demo",
+    route: "/grid",
+  },
+  {
+    icon: "mdi-account",
+    text: "Account",
+    route: "/account",
+  },
+  {
+    icon: "mdi-information",
+    text: "About",
+    route: "/about",
+  },
+]);
+const links = ref([
+  {
+    icon: "mdi-github",
+    text: "GitHub repository",
+    link: "https://github.com/nitslaszlo/jedlik-vite-template",
+  },
+  {
+    icon: "mdi-vuetify",
+    text: "Vuetify 3 home",
+    link: "https://next.vuetifyjs.com/en/getting-started/installation",
+  },
+]);
 </script>
 
 <template>
-  <a class="logo-link" href="https://vitejs.dev/">
-    <img class="logo" alt="Vite logo" src="./assets/svg/vite.svg" />
-  </a>
-  <a class="logo-link" href="https://v3.vuejs.org/">
-    <img class="logo" alt="Vue 3 logo" src="./assets/svg/vue.svg" />
-  </a>
-  <a class="logo-link" href="https://storybook.js.org/">
-    <img class="logo" alt="Storybook logo" src="./assets/svg/storybook.svg" />
-  </a>
-  <a class="logo-link" href="https://www.typescriptlang.org/">
-    <img class="logo" alt="TS logo" src="./assets/svg/ts.svg" />
-  </a>
-  <a class="logo-link" href="https://eslint.org//">
-    <img class="logo" alt="E.S. Lint logo" src="./assets/svg/eslint.svg" />
-  </a>
-  <a class="logo-link" href="https://prettier.io/">
-    <img class="logo" alt="Prettier logo" src="./assets/svg/prettier.svg" />
-  </a>
-  <HelloWorld :msg="t('welcome')" />
+  <v-app>
+    <v-navigation-drawer v-model="drawer" app>
+      <p class="text-center my-3">Routes</p>
+      <v-list nav dense>
+        <v-list-item
+          v-for="(item, i) in menuItems"
+          :key="i"
+          :prepend-icon="item.icon"
+          :title="item.text"
+          :to="item.route"
+          link
+          @click="drawer = !isMobileDevice"
+        ></v-list-item>
+      </v-list>
+      <p class="text-center my-3">Links</p>
+      <v-list nav dense>
+        <v-list-item
+          v-for="(item, i) in links"
+          :key="i"
+          :prepend-icon="item.icon"
+          :title="item.text"
+          :href="item.link"
+          target="_blank"
+          link
+          @click="drawer = !isMobileDevice"
+        ></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      Jedlik Vite Template
+      <v-spacer></v-spacer>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    </v-app-bar>
+
+    <v-main>
+      <!-- Provides the application the proper gutter -->
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
-
-<style lang="scss">
-@use "@/styles/functions/color" as *;
-
-body {
-  background-color: color(light);
-  color: color(dark);
-
-  @media (prefers-color-scheme: dark) {
-    background-color: color(dark);
-    color: color(light);
-  }
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
-}
-</style>
-
-<style lang="scss" scoped>
-@use "@/styles/functions/color" as *;
-
-.logo {
-  height: 56px;
-  width: 56px;
-}
-
-.logo-link {
-  background: darken(color(light), 35%);
-  border-radius: 50%;
-  padding: 8px;
-
-  @media (prefers-color-scheme: dark) {
-    background: darken(color(dark), 5%);
-  }
-
-  & + .logo-link {
-    margin-left: 16px;
-  }
-}
-</style>

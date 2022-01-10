@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import eslintPlugin from "vite-plugin-eslint";
+import vuetify from "@vuetify/vite-plugin";
 
 export default defineConfig({
   resolve: {
@@ -12,6 +13,9 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vuetify({
+      autoImport: true,
+    }),
     vueI18n({
       include: resolve(__dirname, "src/locales/**"),
       compositionOnly: false,
@@ -19,6 +23,12 @@ export default defineConfig({
     }),
     eslintPlugin(),
   ],
+  define: {
+    "process.env": {},
+  },
+  build: {
+    sourcemap: true,
+  },
   css: {
     preprocessorOptions: {
       scss: {

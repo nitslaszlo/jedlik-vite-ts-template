@@ -1,3 +1,4 @@
 {
-  "welcome": "Welcome to Vite + Vue 3 + Storybook + Typescript"
+  "welcome": "Welcome to Vite + Vue 3 + Typescript",
+  "chooseLanguage": "Choose a language!"
 }
