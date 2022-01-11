@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { IReviewArray } from "../../types/IReviewArray";
+import IReview from "../../types/IReview";
 import { PropType } from "vue";
 
 defineProps({
   reviews: {
-    type: Object as PropType<IReviewArray>,
+    type: Object as PropType<IReview[]>,
     required: true,
   },
 });

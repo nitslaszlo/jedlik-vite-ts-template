@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive } from "vue";
-import { IReview } from "@/types/IReviewArray";
-// eslint-disable-next-line no-undef
+import IReview from "./../../types/IReview";
+
 const emits = defineEmits(["review-submitted"]);
 const r = reactive<IReview>({
   name: "",
@@ -23,7 +23,7 @@ function onSubmit() {
     return;
   }
 
-  let productReview = {
+  let productReview: IReview = {
     name: r.name,
     review: r.review,
     rating: r.rating,

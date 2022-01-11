@@ -2,8 +2,9 @@
 import ReviewForm from "./ReviewForm.vue";
 import ReviewList from "./ReviewList.vue";
 import { computed, reactive } from "vue";
-import IProductReactive from "./../../types/IProductReactive";
-import { IReview } from "@/types/IReviewArray";
+import IReview from "./../../types/IReview";
+import IVariant from "./../../types/IVariant";
+
 const images = import.meta.globEager("/src/assets/*.jpg");
 
 // defineProps is compiler macro, only usable inside <script setup>, do not need to be imported
@@ -16,6 +17,15 @@ const props = defineProps({
 
 // defineEmits is compiler macro, only usable inside <script setup>, do not need to be imported
 const emits = defineEmits(["add-to-cart"]);
+
+interface IProductReactive {
+  product: string;
+  brand: string;
+  selectedVariant: number;
+  details: Array<string>;
+  variants: Array<IVariant>;
+  reviews: Array<IReview>;
+}
 
 const r = reactive<IProductReactive>({
   product: "Socks",

@@ -75,16 +75,16 @@ function joNapHozzadni(nap: string) {
   return iNap.value !== "" && napEllenorzese() && !r.napok.includes(nap);
 }
 
-function hozzadNap() {
+function hozzadNap(): void {
   r.napok.push(iNap.value);
   r.inputNap = "";
 }
 
-function joNapTorolni(nap: string) {
+function joNapTorolni(nap: string): boolean {
   return r.napok.includes(nap);
 }
 
-function torolNap() {
+function torolNap(): void {
   r.napok = r.napok.filter((i) => i !== iNap.value);
   r.inputNap = "";
 }
