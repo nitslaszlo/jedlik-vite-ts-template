@@ -29,12 +29,5 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@/styles/boot.scss" as *;`,
-      },
-    },
-  },
-  server: { port: 8080 },
+  server: { port: 8080, open: true },
 });

@@ -7,7 +7,6 @@ import IVariant from "./../../types/IVariant";
 
 const images = import.meta.globEager("/src/assets/*.jpg");
 
-// defineProps is compiler macro, only usable inside <script setup>, do not need to be imported
 const props = defineProps({
   premium: {
     type: Boolean,
@@ -15,7 +14,6 @@ const props = defineProps({
   },
 });
 
-// defineEmits is compiler macro, only usable inside <script setup>, do not need to be imported
 const emits = defineEmits(["add-to-cart"]);
 
 interface IProductReactive {
@@ -60,20 +58,20 @@ const shipping = computed(() => {
   return 2.99;
 });
 
-function addToCart() {
+function addToCart(): void {
   emits("add-to-cart", r.variants[r.selectedVariant].id);
   r.variants[r.selectedVariant].quantity -= 1; // It was not in +L11-End" branch
 }
 
-function refillStock() {
+function refillStock(): void {
   r.variants[r.selectedVariant].quantity = 10; // It was not in +L11-End" branch
 }
 
-function updateVariant(index: number) {
+function updateVariant(index: number): void {
   r.selectedVariant = index;
 }
 
-function addReview(review: IReview) {
+function addReview(review: IReview): void {
   r.reviews.push(review);
 }
 </script>

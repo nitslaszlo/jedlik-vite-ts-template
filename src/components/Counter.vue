@@ -4,7 +4,7 @@ import { ref, computed } from "vue";
 const count = ref(0);
 const doubledCount = computed(() => count.value * 2);
 
-function addCount() {
+function addCount(): void {
   count.value++;
 }
 </script>

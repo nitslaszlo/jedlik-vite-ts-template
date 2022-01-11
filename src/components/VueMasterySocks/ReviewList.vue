@@ -19,9 +19,7 @@ defineProps({
         <br />
         "{{ e.review }}"
         <br />
-        <!-- solution -->
         Recommended: {{ e.recommend }}
-        <!-- solution -->
       </li>
     </ul>
   </div>

@@ -7,12 +7,10 @@ const r = reactive<IReview>({
   name: "",
   review: "",
   rating: 0,
-  // solution
   recommend: "",
-  // solution
 });
 
-function onSubmit() {
+function onSubmit(): void {
   if (
     r.name === "" ||
     r.review === "" ||
@@ -27,13 +25,13 @@ function onSubmit() {
     name: r.name,
     review: r.review,
     rating: r.rating,
-    recommend: r.recommend, // solution
+    recommend: r.recommend,
   };
   emits("review-submitted", productReview);
   r.name = "";
   r.review = "";
   r.rating = 0;
-  r.recommend = ""; // solution
+  r.recommend = "";
 }
 </script>
 
