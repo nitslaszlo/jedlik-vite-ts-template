@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import HomeView from "./views/HomeView.vue";
 import ExamplesView from "./views/ExamplesView.vue";
@@ -9,40 +9,50 @@ import GridView from "./views/GridView.vue";
 import Vue3TableLiteView from "./views/Vue3TableLiteView.vue";
 import VueMasterySocksView from "./views/VueMasterySocksView.vue";
 
+const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/",
+    name: "Home",
+    component: HomeView,
+  },
+  {
+    path: "/examples",
+    name: "Examples",
+    component: ExamplesView,
+  },
+  {
+    path: "/account",
+    name: "Account",
+    component: AccountView,
+  },
+  {
+    path: "/vtable",
+    name: "VTable",
+    component: VTableView,
+  },
+  {
+    path: "/v3table",
+    name: "V3TableLite",
+    component: Vue3TableLiteView,
+  },
+  {
+    path: "/socks",
+    name: "Socks",
+    component: VueMasterySocksView,
+  },
+  {
+    path: "/grid",
+    name: "Grid",
+    component: GridView,
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: AboutView,
+  },
+];
+
 export default createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: "/",
-      component: HomeView,
-    },
-    {
-      path: "/examples",
-      component: ExamplesView,
-    },
-    {
-      path: "/account",
-      component: AccountView,
-    },
-    {
-      path: "/vtable",
-      component: VTableView,
-    },
-    {
-      path: "/v3table",
-      component: Vue3TableLiteView,
-    },
-    {
-      path: "/socks",
-      component: VueMasterySocksView,
-    },
-    {
-      path: "/grid",
-      component: GridView,
-    },
-    {
-      path: "/about",
-      component: AboutView,
-    },
-  ],
+  routes,
 });

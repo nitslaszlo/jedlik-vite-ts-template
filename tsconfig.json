@@ -15,13 +15,35 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "baseUrl": ".",
-    "types": ["node", "@intlify/vite-plugin-vue-i18n/client", "vite/client"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "@intlify/vite-plugin-vue-i18n/client",
+      "vite/client"
+    ],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
-  "files": ["src/env.d.ts"],
-  "include": ["src/**/**.ts", "src/**/*.vue", "src/**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "files": [
+    "src/env.d.ts"
+  ],
+  "include": [
+    "src/**/**.ts",
+    "src/**/*.vue",
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

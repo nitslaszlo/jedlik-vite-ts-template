@@ -18,7 +18,7 @@ export default defineConfig({
     }),
     vueI18n({
       include: resolve(__dirname, "src/locales/**"),
-      compositionOnly: false,
+      compositionOnly: true,
       runtimeOnly: false,
     }),
     eslintPlugin(),
