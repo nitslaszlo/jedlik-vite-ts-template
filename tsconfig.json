@@ -20,7 +20,6 @@
     ],
     "types": [
       "node",
-      "@intlify/vite-plugin-vue-i18n/client",
       "vite/client"
     ],
     "paths": {

@@ -36,4 +36,9 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "vite.notifyOnStarted": false,
+    "vite.port": 8080,
+    "vite.devCommand": "npm run dev",
+    "vite.open": false,
+    "vite.autoStart": false,
 }

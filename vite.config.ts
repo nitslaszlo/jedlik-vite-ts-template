@@ -1,4 +1,3 @@
-import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 import { defineConfig } from "vite";
@@ -16,11 +15,6 @@ export default defineConfig({
     vuetify({
       autoImport: true,
     }),
-    vueI18n({
-      include: resolve(__dirname, "src/locales/**"),
-      compositionOnly: true,
-      runtimeOnly: false,
-    }),
     eslintPlugin(),
   ],
   define: {
@@ -29,5 +23,5 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
-  server: { port: 8080, open: true },
+  server: { port: 8080 },
 });

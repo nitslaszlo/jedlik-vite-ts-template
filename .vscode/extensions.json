@@ -6,6 +6,7 @@
     "dbaeumer.vscode-eslint",
     "christian-kohler.path-intellisense",
     "coenraads.bracket-pair-colorizer-2",
-    "antfu.iconify"
+    "antfu.iconify",
+    "antfu.vite"
   ]
 }
