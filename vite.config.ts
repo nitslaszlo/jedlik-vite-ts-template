@@ -21,7 +21,7 @@ export default defineConfig({
     "process.env": {},
   },
   build: {
-    sourcemap: true,
+    sourcemap: false,
   },
   server: { port: 8080 },
 });

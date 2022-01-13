@@ -9,6 +9,10 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
+    "[vue]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "editor.minimap.enabled": false,
     "editor.wordWrap": "on",
     "editor.codeActionsOnSave": {
@@ -41,4 +45,5 @@
     "vite.devCommand": "npm run dev",
     "vite.open": false,
     "vite.autoStart": false,
+    "vscode-edge-devtools.mirrorEdits": true,
 }
