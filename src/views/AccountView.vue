@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { VContainer, VBtn } from "vuetify/components";
 
 const store = useStore();
 

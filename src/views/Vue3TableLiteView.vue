@@ -2,6 +2,8 @@
 import VueTableLite from "vue3-table-lite/ts";
 import { onMounted, ref, reactive, computed, watch } from "vue";
 import { useStore } from "vuex";
+import { VContainer, VTextField } from "vuetify/components";
+
 const store = useStore();
 const posts = computed(() => store.getters["posts/getPosts"]);
 const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);

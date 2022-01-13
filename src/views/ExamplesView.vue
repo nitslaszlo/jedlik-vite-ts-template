@@ -3,6 +3,14 @@ import Counter from "../components/Counter.vue";
 import ColorChecker from "../components/ColorChecker.vue";
 import HelloWorld from "../components/HelloWorld.vue";
 import { reactive, computed, watchEffect } from "vue";
+import {
+  VContainer,
+  VBtn,
+  VCol,
+  VRow,
+  VAlert,
+  VTextField,
+} from "vuetify/components";
 
 interface IReactiveData {
   felkialtojelDarab: number;

@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import {
+  VBtn,
+  VCard,
+  VCardTitle,
+  VCardText,
+  VIcon,
+  VSpacer,
+} from "vuetify/components";
 
 const count = ref(0);
 const doubledCount = computed(() => count.value * 2);

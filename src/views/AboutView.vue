@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { VContainer, VBtn } from "vuetify/components";
+</script>
 
 <template>
   <v-container class="page text-center">

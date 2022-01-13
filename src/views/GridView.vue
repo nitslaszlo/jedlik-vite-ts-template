@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
+import {
+  VContainer,
+  VCol,
+  VRow,
+  VCard,
+  VCardTitle,
+  VCardText,
+} from "vuetify/components";
+
 const myColors = [
   "green-lighten-2",
   "yellow-lighten-2",
