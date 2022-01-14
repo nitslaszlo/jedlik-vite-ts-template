@@ -4,31 +4,43 @@ export default {
   namespaced: true,
   state: {
     loggedIn: false,
+    loggedUser: "Please login or register to use all routes",
   },
   getters: {
     getLoggedIn(state) {
       return state.loggedIn;
+    },
+    getLoggedUser(state) {
+      return state.loggedUser;
     },
   },
   mutations: {
     setLoggedIn(state, value) {
       state.loggedIn = value;
     },
+    setLoggedUser(state, value) {
+      state.loggedUser = value;
+    },
   },
   actions: {
-    async loginUser(context) {
+    async loginUser(context, params) {
       $axios
         .post("auth/login", {
-          email: "student001@jedlik.eu",
-          password: "student001",
+          email: params.email,
+          password: params.password,
         })
-        .then(() => {
+        .then((res) => {
           console.log("Authenticated");
-          // console.log(res);
+          // alert(`${res.data.name} is logged in`);
+          context.commit("setLoggedUser", res.data.name);
           context.commit("setLoggedIn", true);
         })
         .catch(() => {
-          console.log("Error on Authentication");
+          alert("Error on Authentication");
+          context.commit(
+            "setLoggedUser",
+            "Please login or register to use all routes"
+          );
           context.commit("setLoggedIn", false);
         });
     },
@@ -36,13 +48,20 @@ export default {
       $axios
         .post("auth/logout")
         .then(() => {
-          console.log("Logged out");
-          // console.log(res);
+          alert("Logged out");
           context.commit("setLoggedIn", false);
+          context.commit(
+            "setLoggedUser",
+            "Please login or register to use all routes"
+          );
         })
         .catch(() => {
           console.log("Error on Authentication");
           context.commit("setLoggedIn", false);
+          context.commit(
+            "setLoggedUser",
+            "Please login or register to use all routes"
+          );
         });
     },
   },

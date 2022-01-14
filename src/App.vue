@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useDisplay } from "vuetify";
+import { useStore } from "vuex";
 import {
   VMain,
   VApp,
@@ -13,8 +14,12 @@ import {
   VNavigationDrawer,
 } from "vuetify/components";
 
-const drawer = ref(false);
 const isMobileDevice = useDisplay().mobile.value;
+const drawer = ref(isMobileDevice);
+const store = useStore();
+
+const loggedUser = computed(() => store.getters["users/getLoggedUser"]);
+const loggedIn = computed(() => store.getters["users/getLoggedIn"]);
 
 // Search icons: https://materialdesignicons.com/
 const menuItems = ref([
@@ -102,11 +107,17 @@ const links = ref([
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      Jedlik Vite Template
+    <v-app-bar dark app :color="loggedIn ? 'success' : 'warning'">
+      <v-app-bar-nav-icon
+        @click="drawer = !drawer"
+        :color="loggedIn ? 'success' : 'warning'"
+      ></v-app-bar-nav-icon>
+      Jedlik Vite TS Template - {{ loggedUser }}
       <v-spacer></v-spacer>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        @click="drawer = !drawer"
+        :color="loggedIn ? 'success' : 'warning'"
+      ></v-app-bar-nav-icon>
     </v-app-bar>
 
     <v-main>

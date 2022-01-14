@@ -8,6 +8,7 @@ import AboutView from "./views/AboutView.vue";
 import GridView from "./views/GridView.vue";
 import Vue3TableLiteView from "./views/Vue3TableLiteView.vue";
 import VueMasterySocksView from "./views/VueMasterySocksView.vue";
+import protectedRoute from "./middlewares/protected";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -29,11 +30,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/vtable",
     name: "VTable",
     component: VTableView,
+    beforeEnter: protectedRoute,
   },
   {
     path: "/v3table",
     name: "V3TableLite",
     component: Vue3TableLiteView,
+    beforeEnter: protectedRoute,
   },
   {
     path: "/socks",
