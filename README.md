@@ -1,4 +1,22 @@
-# Vue 3 + i18n + Typescript + Vite + Storybook + ESLint + Prettier
+# Vue 3 + i18n + Typescript + Vite + ESLint + Prettier
+
+
+## Recommended Node.js and npm versions
+node -v  -> v14.18.2
+npm -v  -> 8.3.1
+
+## Some useful npm (Node Package Manager) commands:
+- Update npm: npm i npm@latest -g
+- Clean npm chache: npm cache clean --force
+- Check npm chache status: npm cache verify
+- List globally installed node packages: npm list -g --depth=0
+- List locally installed node packages: npm list --depth=0
+- List all versions of an npm package: npm view <package> versions
+- View information about the package: npm view <package>
+- Show outdated npm packages: npm outdated
+- Update package: npm update <package>
+- Uninstall package: npm remove <package> or npm uninstall <package>
+
 
 This template should help get you started developing with Vue 3 and Typescript in Vite.
 The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
@@ -20,17 +38,6 @@ Change your config at `.eslintrc.js`
 
 Change config at `.prettierrc`
 
-## Scripts
-
-```js
-yarn // installs packages
-yarn vite // starts the dev server
-yarn build // run build
-yarn serve // preview build
-yarn storybook // starts storybook
-yarn lint // lint and fix all files
-yarn format // run prettier on all files
-```
 
 ## Recommended IDE Setup
 
