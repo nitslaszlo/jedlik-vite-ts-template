@@ -47,12 +47,13 @@ const r = reactive<IReactiveData>({
               <v-text-field
                 v-model="r.email"
                 name="login"
-                label="Login"
+                :label="loggedIn ? 'Logged user´s email' : 'E-mail'"
                 type="text"
                 :disabled="loggedIn"
               ></v-text-field>
               <v-text-field
                 v-model="r.password"
+                v-if="!loggedIn"
                 id="password"
                 name="password"
                 label="Password"
