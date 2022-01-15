@@ -42,5 +42,10 @@
     "vue-jest": "^5.0.0-alpha.10",
     "vue-loader": "^17.0.0",
     "vue-tsc": "^0.30.2"
-  }
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/nitslaszlo/jedlik-vite-ts-template"
+  },
+  "license": "MIT"
 }
