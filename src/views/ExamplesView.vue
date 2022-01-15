@@ -111,7 +111,6 @@ function torolNap(): void {
         <v-col cols="12" md="6">
           <v-text-field
             v-model="r.nev"
-            prepend-icon="mdi-home"
             :rules="[(v:String) => v.length <= 20 || 'Max 20 karakter!']"
             counter="20"
             hint="Maximum 20 karakter engedélyezett"

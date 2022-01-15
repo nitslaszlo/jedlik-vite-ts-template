@@ -1,25 +1,33 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { VCard, VCardText } from "vuetify/components";
+import { VContainer, VForm, VRow, VCol, VTextField } from "vuetify/components";
 const color = ref("lightblue");
 </script>
 
 <template>
-  <v-card>
-    <v-card-text>
-      Change the color:
-      <input v-model="color" type="text" class="pa-1 rounded" />
-      <div class="box pa-12 mt-3 rounded" />
-    </v-card-text>
-  </v-card>
+  <v-form>
+    <v-container>
+      <v-row no-gutters>
+        <v-col cols="12" md="6">
+          <v-text-field
+            class="mx-4 my-0"
+            v-model="color"
+            prepend-inner-icon="mdi-palette"
+            clearable
+            label="Change the color:"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="6">
+          <div class="box mx-4 pa-7 rounded" />
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
 </template>
 
 <style scoped>
 .box {
   background-color: v-bind(color);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-input {
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 </style>
