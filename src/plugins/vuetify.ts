@@ -1,5 +1,6 @@
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/lib/styles/main.sass";
+import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
@@ -35,6 +36,13 @@ const vuetify = createVuetify({
       md: 960,
       lg: 1264,
       xl: 1400,
+    },
+  },
+  icons: {
+    defaultSet: "mdi",
+    aliases,
+    sets: {
+      mdi,
     },
   },
 });

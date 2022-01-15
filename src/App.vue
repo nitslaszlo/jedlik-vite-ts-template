@@ -15,7 +15,7 @@ import {
 } from "vuetify/components";
 
 const isMobileDevice = useDisplay().mobile.value;
-const drawer = ref(isMobileDevice);
+const drawer = ref(!isMobileDevice);
 const store = useStore();
 
 const loggedUser = computed(() => store.getters["users/getLoggedUser"]);
