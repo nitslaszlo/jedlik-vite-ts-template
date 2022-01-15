@@ -1,4 +1,4 @@
-# Vue 3 + Typescript + Vite + Vuetify + i18n + ESLint + Prettier
+# Vue3 + Typescript + Vite + Vuetify3 + Vuex4 + i18n + ESLint + Prettier
 
 
 ## Recommended Node.js and npm versions
