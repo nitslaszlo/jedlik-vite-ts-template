@@ -1,5 +1,7 @@
-# Vue3 + Typescript + Vite + Vuetify3 + Vuex4 + Axios + i18n + ESLint + Prettier
+# Vue3 + TypeScript + Vite + Vuetify3 + Vuex4 + Axios + i18n + ESLint + Prettier
 
+## Test on Netlify
+https://jedlik-vite-ts-template.netlify.app
 
 ## Recommended Node.js and npm versions
 - node -v  -> v14.18.2
