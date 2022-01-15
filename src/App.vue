@@ -14,6 +14,7 @@ import {
   VSpacer,
   VNavigationDrawer,
 } from "vuetify/components";
+import { useI18n } from "vue-i18n";
 
 const isMobileDevice = useDisplay().mobile.value;
 const drawer = ref(!isMobileDevice);
@@ -88,8 +89,17 @@ const links = ref([
     disabled: false,
   },
 ]);
+
+let { locale } = useI18n({
+  inheritLocale: true,
+  useScope: "global", // Change to "local" if you want to add <i18n></i18n> locally
+});
+
 function toggleTheme() {
   theme.value = theme.value === "light" ? "dark" : "light";
+}
+function toggleLanguage() {
+  locale.value = locale.value == "hu" ? "en" : "hu";
 }
 </script>
 
@@ -131,7 +141,16 @@ function toggleTheme() {
       ></v-app-bar-nav-icon>
       Jedlik Vite TS Template - {{ loggedUser }}
       <v-spacer></v-spacer>
-      <!-- v-sun-moon-stars -->
+      <!-- v-sun-moon-stars comment-text-multiple -->
+      <v-btn
+        variant="outlined"
+        class="mr-3"
+        icon
+        :color="notLoggedIn ? 'success' : 'surface'"
+        @click="toggleLanguage"
+      >
+        <v-icon>mdi-comment-text-multiple</v-icon>
+      </v-btn>
       <v-btn
         variant="outlined"
         icon

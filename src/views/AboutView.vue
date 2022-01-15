@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { VContainer, VBtn, VAlert } from "vuetify/components";
+import { useI18n } from "vue-i18n";
+let { t } = useI18n({
+  inheritLocale: true,
+  useScope: "global", // Change to "local" if you want to add <i18n></i18n> locally
+});
 </script>
 
 <template>
   <v-container class="page text-center">
     <img src="/src/assets/Jedlik.png" />
-    <h1>This is about us!</h1>
+    <h1>{{ t("aboutMsg") }}</h1>
 
-    <v-btn color="jedlikBlue" to="/" class="ma-3"> Back to home </v-btn>
+    <v-btn color="jedlikBlue" to="/" class="ma-3">{{ t("backToHome") }}</v-btn>
 
-    <h1>Colors of light theme</h1>
+    <h1>{{ t("colorsOfTheme") }}</h1>
     <v-alert color="primary">primary</v-alert>
     <v-alert color="background">background</v-alert>
     <v-alert color="error">error</v-alert>

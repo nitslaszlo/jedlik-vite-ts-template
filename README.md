@@ -1,9 +1,9 @@
-# Vue 3 + i18n + Typescript + Vite + ESLint + Prettier
+# Vue 3 + Typescript + Vite + Vuetify + i18n + ESLint + Prettier
 
 
 ## Recommended Node.js and npm versions
-node -v  -> v14.18.2
-npm -v  -> 8.3.1
+- node -v  -> v14.18.2
+- npm -v  -> 8.3.1
 
 ## Some useful npm (Node Package Manager) commands:
 - Update npm: npm i npm@latest -g
