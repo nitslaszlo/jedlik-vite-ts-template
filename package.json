@@ -2,7 +2,7 @@
   "name": "jedlik-vite-ts-tamplate",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite  --port 8080 --open",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix",
