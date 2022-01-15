@@ -8,17 +8,22 @@ import {
   VCardTitle,
   VCardText,
   VCardActions,
+  VDialog,
   VRow,
   VCol,
   VForm,
   VTextField,
   VSpacer,
   VIcon,
+  VProgressLinear,
 } from "vuetify/components";
 
 const store = useStore();
 
 const loggedIn = computed(() => store.getters["users/getLoggedIn"]);
+const isLoading = computed(() => store.getters["users/getLoading"]);
+const errorMsg = computed(() => store.getters["users/getErrorMsg"]);
+const isErrorMsg = computed(() => store.getters["users/getErrorMsg"] != "");
 
 interface IReactiveData {
   email: string;
@@ -86,6 +91,35 @@ const r = reactive<IReactiveData>({
         </v-card>
       </v-col>
     </v-row>
+    <!-- Dialog1: Wait for login response -->
+    <v-dialog v-model="isLoading" hide-overlay persistent>
+      <v-card color="primary">
+        <v-card-text>
+          Please wait...
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+    <!-- Dialog 2: Show error messages -->
+    <v-dialog v-model="isErrorMsg">
+      <v-card>
+        <v-card-title> Error </v-card-title>
+        <v-card-text>{{ errorMsg }}</v-card-text>
+        <v-card-actions>
+          <v-btn
+            color="primary"
+            text
+            @click="store.dispatch('users/clearErrorMsg')"
+          >
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 

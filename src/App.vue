@@ -5,6 +5,7 @@ import { useStore } from "vuex";
 import {
   VMain,
   VApp,
+  VBadge,
   VBtn,
   VContainer,
   VList,
@@ -141,20 +142,19 @@ function toggleLanguage() {
       ></v-app-bar-nav-icon>
       Jedlik Vite TS Template - {{ loggedUser }}
       <v-spacer></v-spacer>
-      <!-- v-sun-moon-stars comment-text-multiple -->
+      <v-badge :content="locale" offset-x="6" offset-y="6">
+        <v-btn
+          icon
+          :color="notLoggedIn ? 'surface' : 'success'"
+          @click="toggleLanguage"
+        >
+          <v-icon>mdi-comment-text-multiple</v-icon>
+        </v-btn>
+      </v-badge>
       <v-btn
-        variant="outlined"
-        class="mr-3"
         icon
-        :color="notLoggedIn ? 'success' : 'surface'"
-        @click="toggleLanguage"
-      >
-        <v-icon>mdi-comment-text-multiple</v-icon>
-      </v-btn>
-      <v-btn
-        variant="outlined"
-        icon
-        :color="notLoggedIn ? 'success' : 'surface'"
+        class="ml-5"
+        :color="notLoggedIn ? 'surface' : 'success'"
         @click="toggleTheme"
       >
         <v-icon>mdi-theme-light-dark</v-icon>
