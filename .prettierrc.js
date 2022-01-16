@@ -1,3 +1,4 @@
+// restart VS Code if you change settings
 module.exports = {
     semi: true,
     tabWidth: 2,

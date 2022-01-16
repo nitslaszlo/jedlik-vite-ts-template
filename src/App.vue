@@ -80,7 +80,7 @@ const links = ref([
   {
     icon: "mdi-github",
     text: "GitHub repository",
-    link: "https://github.com/nitslaszlo/jedlik-vite-template",
+    link: "https://github.com/nitslaszlo/jedlik-vite-ts-template",
     disabled: false,
   },
   {
