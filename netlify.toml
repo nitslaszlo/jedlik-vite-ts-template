@@ -3,3 +3,10 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build]
+command = "CI= npm run build"
+
+# Skip all post processing in deploy previews, ignoring any other settings
+[build.processing]
+  skip_processing = true
