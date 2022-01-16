@@ -22,21 +22,21 @@ https://jedlik-vite-ts-template.netlify.app
 
 ## Recommended Node.js and npm versions
 
-- node -v -> v14.18.2
-- npm -v -> 8.3.1
+- `node -v` -> v14.18.2
+- `npm -v` -> 8.3.1
 
 ## Some useful npm (Node Package Manager) commands:
 
-- Update npm: npm i npm@latest -g
-- Clean npm chache: npm cache clean --force
-- Check npm chache status: npm cache verify
-- List globally installed node packages: npm list -g --depth=0
-- List locally installed node packages: npm list --depth=0
-- List all versions of an npm package: npm view <package> versions
-- View information about the package: npm view <package>
-- Show outdated npm packages: npm outdated
-- Update package: npm update <package>
-- Uninstall package: npm remove <package> or npm uninstall <package>
+- Update npm: `npm i npm@latest -g`
+- Clean npm chache: `npm cache clean --force`
+- Check npm chache status: `npm cache verify`
+- List globally installed node packages: `npm list -g --depth=0`
+- List locally installed node packages: `npm list --depth=0`
+- List all versions of an npm package: `npm view package_name versions`
+- View information about the package: `npm view package_name`
+- Show outdated npm packages: `npm outdated`
+- Update package: `npm update package_name`
+- Uninstall package: `npm remove package_name` or `npm uninstall package_name`
 
 ## vue3-table-lite
 
@@ -65,7 +65,7 @@ Change your config at `.eslintrc.js`
 
 ## Prettier
 
-Change config at `.prettierrc`
+Change config at `.prettierrc.js`
 
 ## Recommended IDE Setup
 
