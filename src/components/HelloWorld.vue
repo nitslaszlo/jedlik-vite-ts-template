@@ -22,11 +22,7 @@ defineProps({
       <img class="logo" alt="E.S. Lint logo" src="./../assets/svg/eslint.svg" />
     </a>
     <a class="logo-link" href="https://prettier.io/">
-      <img
-        class="logo"
-        alt="Prettier logo"
-        src="./../assets/svg/prettier.svg"
-      />
+      <img class="logo" alt="Prettier logo" src="./../assets/svg/prettier.svg" />
     </a>
     <h1>{{ msg }}</h1>
     <h1>Welcome to Vite + Vue 3 + Typescript</h1>

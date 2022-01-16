@@ -41,12 +41,8 @@ const r = reactive<IReactiveData>({
     <v-row justify="center">
       <v-col xs="12" sm="8" md="4">
         <v-card class="elevation-12">
-          <v-card-title v-if="!loggedIn"
-            >Login form <v-icon>mdi-login</v-icon></v-card-title
-          >
-          <v-card-title v-else
-            >Logout form <v-icon>mdi-logout</v-icon></v-card-title
-          >
+          <v-card-title v-if="!loggedIn">Login form <v-icon>mdi-login</v-icon></v-card-title>
+          <v-card-title v-else>Logout form <v-icon>mdi-logout</v-icon></v-card-title>
           <v-card-text>
             <v-form>
               <v-text-field
@@ -80,11 +76,7 @@ const r = reactive<IReactiveData>({
               "
               >Login</v-btn
             >
-            <v-btn
-              v-else
-              color="warning"
-              class="mt-3"
-              @click="store.dispatch('users/logOut')"
+            <v-btn v-else color="warning" class="mt-3" @click="store.dispatch('users/logOut')"
               >Log out</v-btn
             >
           </v-card-actions>
@@ -96,11 +88,7 @@ const r = reactive<IReactiveData>({
       <v-card color="primary">
         <v-card-text>
           Please wait...
-          <v-progress-linear
-            indeterminate
-            color="white"
-            class="mb-0"
-          ></v-progress-linear>
+          <v-progress-linear indeterminate color="white" class="mb-0"></v-progress-linear>
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -110,13 +98,7 @@ const r = reactive<IReactiveData>({
         <v-card-title> Error </v-card-title>
         <v-card-text>{{ errorMsg }}</v-card-text>
         <v-card-actions>
-          <v-btn
-            color="primary"
-            text
-            @click="store.dispatch('users/clearErrorMsg')"
-          >
-            Close
-          </v-btn>
+          <v-btn color="primary" text @click="store.dispatch('users/clearErrorMsg')"> Close </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

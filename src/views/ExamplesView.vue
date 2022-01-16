@@ -3,14 +3,7 @@ import Counter from "../components/Counter.vue";
 import ColorChecker from "../components/ColorChecker.vue";
 import HelloWorld from "../components/HelloWorld.vue";
 import { reactive, computed, watchEffect } from "vue";
-import {
-  VContainer,
-  VBtn,
-  VCol,
-  VRow,
-  VAlert,
-  VTextField,
-} from "vuetify/components";
+import { VContainer, VBtn, VCol, VRow, VAlert, VTextField } from "vuetify/components";
 
 interface IReactiveData {
   felkialtojelDarab: number;
@@ -123,20 +116,10 @@ function torolNap(): void {
             hint="Maximum 10 darab x engedélyezett"
             label="10 darab x"
           ></v-text-field>
-          <v-alert
-            icon="mdi-import"
-            class="ma-3"
-            color="green"
-            dense
-            elevation="9"
+          <v-alert icon="mdi-import" class="ma-3" color="green" dense elevation="9"
             >Hello {{ r.nev }} {{ r.xek }} {{ r.felkialtojelek }}</v-alert
           >
-          <v-alert
-            icon="mdi-alert-box-outline"
-            class="ma-3"
-            color="yellow"
-            dense
-            elevation="9"
+          <v-alert icon="mdi-alert-box-outline" class="ma-3" color="yellow" dense elevation="9"
             >Felkiáltójelek darabszáma: {{ r.felkialtojelDarab }}</v-alert
           >
           <v-row justify="center" class="ma-5">
@@ -195,8 +178,6 @@ function torolNap(): void {
       </v-row>
     </v-container>
 
-    <v-btn block flat color="info" class="mt-3" to="/about">
-      Go To About Us
-    </v-btn>
+    <v-btn block flat color="info" class="mt-3" to="/about"> Go To About Us </v-btn>
   </v-container>
 </template>

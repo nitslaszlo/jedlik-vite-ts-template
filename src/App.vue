@@ -143,20 +143,11 @@ function toggleLanguage() {
       Jedlik Vite TS Template - {{ loggedUser }}
       <v-spacer></v-spacer>
       <v-badge :content="locale" offset-x="6" offset-y="6">
-        <v-btn
-          icon
-          :color="notLoggedIn ? 'surface' : 'success'"
-          @click="toggleLanguage"
-        >
+        <v-btn icon :color="notLoggedIn ? 'surface' : 'success'" @click="toggleLanguage">
           <v-icon>mdi-comment-text-multiple</v-icon>
         </v-btn>
       </v-badge>
-      <v-btn
-        icon
-        class="ml-5"
-        :color="notLoggedIn ? 'surface' : 'success'"
-        @click="toggleTheme"
-      >
+      <v-btn icon class="ml-5" :color="notLoggedIn ? 'surface' : 'success'" @click="toggleTheme">
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
       <v-app-bar-nav-icon

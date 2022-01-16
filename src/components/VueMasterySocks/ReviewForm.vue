@@ -11,12 +11,7 @@ const r = reactive<IReview>({
 });
 
 function onSubmit(): void {
-  if (
-    r.name === "" ||
-    r.review === "" ||
-    r.rating === 0 ||
-    r.recommend === ""
-  ) {
+  if (r.name === "" || r.review === "" || r.rating === 0 || r.recommend === "") {
     alert("Review is incomplete. Please fill out every field.");
     return;
   }
