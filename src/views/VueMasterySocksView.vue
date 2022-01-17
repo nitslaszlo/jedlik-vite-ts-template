@@ -16,14 +16,10 @@ function updateCart(id: number) {
 <template>
   <div class="page">
     <div class="nav-bar">
-      Vue Mastery - Intro to Vue 3 course example - composition API (script
-      setup)
+      Vue Mastery - Intro to Vue 3 course example - composition API (script setup)
     </div>
     <div class="cart">Cart({{ r.cart.length }})</div>
-    <product-display
-      :premium="r.premium"
-      @add-to-cart="updateCart"
-    ></product-display>
+    <product-display :premium="r.premium" @add-to-cart="updateCart"></product-display>
   </div>
 </template>
 

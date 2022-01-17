@@ -47,9 +47,7 @@ const r = reactive<IProductReactive>({
   reviews: [],
 });
 const title = computed(() => r.brand + " " + r.product);
-const image = computed(
-  () => images[r.variants[r.selectedVariant].image].default
-);
+const image = computed(() => images[r.variants[r.selectedVariant].image].default);
 const inStock = computed(() => r.variants[r.selectedVariant].quantity != 0);
 const shipping = computed(() => {
   if (props.premium) {

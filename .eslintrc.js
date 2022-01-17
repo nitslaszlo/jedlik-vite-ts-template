@@ -6,11 +6,11 @@ module.exports = {
     "vue/setup-compiler-macros": true,
   },
   extends: [
+    "plugin:vue/vue3-essential",
+    "plugin:markdown/recommended",
     "eslint:recommended",
     "@vue/prettier",
     "@vue/typescript/recommended",
-    "plugin:vue/vue3-essential",
-    "plugin:markdown/recommended",
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -24,11 +24,5 @@ module.exports = {
   rules: {
     "no-console": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        endOfLine: "auto",
-      },
-    ],
   },
 };

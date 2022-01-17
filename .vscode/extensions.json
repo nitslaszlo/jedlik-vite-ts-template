@@ -5,9 +5,7 @@
     "pkief.material-icon-theme",
     "dbaeumer.vscode-eslint",
     "christian-kohler.path-intellisense",
-    "coenraads.bracket-pair-colorizer-2",
     "antfu.iconify",
-    "antfu.vite",
     "ms-edgedevtools.vscode-edge-devtools"
   ]
 }

@@ -14,12 +14,7 @@ let checkedRowsIds = [];
 const searchTerm = ref(""); // Search text
 
 watch(searchTerm, () => {
-  doSearch(
-    "0",
-    table.pageSize.toString(),
-    table.sortable.order,
-    table.sortable.sort
-  );
+  doSearch("0", table.pageSize.toString(), table.sortable.order, table.sortable.sort);
 });
 
 onMounted(() => {
@@ -87,12 +82,7 @@ const table = reactive({
   },
   pageSize: 10,
 });
-const doSearch = (
-  offset: string,
-  limit: string,
-  order: string,
-  sort: string
-) => {
+const doSearch = (offset: string, limit: string, order: string, sort: string) => {
   store.dispatch("posts/fetchPaginatedPosts", {
     offset: offset,
     limit: limit,
@@ -119,19 +109,14 @@ const tableLoadingFinish = (elements) => {
 const updateCheckedRows = (rowsKey) => {
   checkedRowsIds = rowsKey;
   const number = checkedRowsIds.length;
-  console.log(
-    "Checked: " + checkedRowsIds.length + (number == 1 ? "row" : "rows")
-  );
+  console.log("Checked: " + checkedRowsIds.length + (number == 1 ? "row" : "rows"));
 };
 </script>
 
 <template>
   <v-container class="page">
     <h1 class="text-h4 ma-3">vue3-table-light</h1>
-    <v-text-field
-      v-model="searchTerm"
-      label="Kérem a keresendő szórészletet!"
-    ></v-text-field>
+    <v-text-field v-model="searchTerm" label="Kérem a keresendő szórészletet!"></v-text-field>
     <vue-table-lite
       :has-checkbox="table.hasCheckbox"
       :is-loading="table.isLoading"
