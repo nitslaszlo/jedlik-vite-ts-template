@@ -1,10 +1,10 @@
 <script setup lang="ts">
-defineProps({
-  msg: {
-    type: String,
-    required: true,
-  },
-});
+  defineProps({
+    msg: {
+      type: String,
+      required: true,
+    },
+  });
 </script>
 
 <template>
@@ -30,20 +30,20 @@ defineProps({
 </template>
 
 <style scoped>
-.content {
-  text-align: center;
-  margin-top: 60px;
-}
+  .content {
+    text-align: center;
+    margin-top: 60px;
+  }
 
-.logo {
-  height: 56px;
-  width: 56px;
-}
+  .logo {
+    height: 56px;
+    width: 56px;
+  }
 
-.logo-link {
-  background-color: lightgray;
-  border-radius: 50%;
-  padding: 8px;
-  margin-left: 16px;
-}
+  .logo-link {
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 8px;
+    margin-left: 16px;
+  }
 </style>

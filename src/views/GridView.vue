@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useDisplay } from "vuetify";
-import { VContainer, VCol, VRow, VCard, VCardTitle, VCardText } from "vuetify/components";
+  import { useDisplay } from "vuetify";
+  import { VContainer, VCol, VRow, VCard, VCardTitle, VCardText } from "vuetify/components";
 
-const myColors = ["green-lighten-2", "yellow-lighten-2", "blue-lighten-2", "red-lighten-2"];
+  const myColors = ["green-lighten-2", "yellow-lighten-2", "blue-lighten-2", "red-lighten-2"];
 
-const lorem =
-  "Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.";
+  const lorem =
+    "Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.";
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const lorem =
 </template>
 
 <style scoped>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-}
+  #app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+  }
 </style>

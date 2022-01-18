@@ -6,6 +6,8 @@
     "dbaeumer.vscode-eslint",
     "christian-kohler.path-intellisense",
     "antfu.iconify",
-    "ms-edgedevtools.vscode-edge-devtools"
+    "ms-edgedevtools.vscode-edge-devtools",
+    "msjsdiag.debugger-for-edge",
+    "vuetifyjs.vuetify-vscode"
   ]
 }

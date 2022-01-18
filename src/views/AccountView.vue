@@ -1,39 +1,39 @@
 <script setup lang="ts">
-import { computed, reactive } from "vue";
-import { useStore } from "vuex";
-import {
-  VContainer,
-  VBtn,
-  VCard,
-  VCardTitle,
-  VCardText,
-  VCardActions,
-  VDialog,
-  VRow,
-  VCol,
-  VForm,
-  VTextField,
-  VSpacer,
-  VIcon,
-  VProgressLinear,
-} from "vuetify/components";
+  import { computed, reactive } from "vue";
+  import { useStore } from "vuex";
+  import {
+    VContainer,
+    VBtn,
+    VCard,
+    VCardTitle,
+    VCardText,
+    VCardActions,
+    VDialog,
+    VRow,
+    VCol,
+    VForm,
+    VTextField,
+    VSpacer,
+    VIcon,
+    VProgressLinear,
+  } from "vuetify/components";
 
-const store = useStore();
+  const store = useStore();
 
-const loggedIn = computed(() => store.getters["users/getLoggedIn"]);
-const isLoading = computed(() => store.getters["users/getLoading"]);
-const errorMsg = computed(() => store.getters["users/getErrorMsg"]);
-const isErrorMsg = computed(() => store.getters["users/getErrorMsg"] != "");
+  const loggedIn = computed(() => store.getters["users/getLoggedIn"]);
+  const isLoading = computed(() => store.getters["users/getLoading"]);
+  const errorMsg = computed(() => store.getters["users/getErrorMsg"]);
+  const isErrorMsg = computed(() => store.getters["users/getErrorMsg"] != "");
 
-interface IReactiveData {
-  email: string;
-  password: string;
-}
+  interface IReactiveData {
+    email: string;
+    password: string;
+  }
 
-const r = reactive<IReactiveData>({
-  email: "student001@jedlik.eu",
-  password: "student001",
-});
+  const r = reactive<IReactiveData>({
+    email: "student001@jedlik.eu",
+    password: "student001",
+  });
 </script>
 
 <template>
@@ -53,9 +53,9 @@ const r = reactive<IReactiveData>({
                 :disabled="loggedIn"
               ></v-text-field>
               <v-text-field
-                v-model="r.password"
                 v-if="!loggedIn"
                 id="password"
+                v-model="r.password"
                 name="password"
                 label="Password"
                 type="password"
@@ -106,7 +106,7 @@ const r = reactive<IReactiveData>({
 </template>
 
 <style scoped>
-.v-card-title {
-  background-color: lightgray;
-}
+  .v-card-title {
+    background-color: lightgray;
+  }
 </style>

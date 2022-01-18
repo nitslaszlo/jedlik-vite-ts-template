@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { VBtn, VCard, VCardTitle, VCardText, VIcon, VSpacer } from "vuetify/components";
+  import { ref, computed } from "vue";
+  import { VBtn, VCard, VCardTitle, VCardText, VIcon, VSpacer } from "vuetify/components";
 
-const count = ref(0);
-const doubledCount = computed(() => count.value * 2);
+  const count = ref(0);
+  const doubledCount = computed(() => count.value * 2);
 
-function addCount(): void {
-  count.value++;
-}
+  function addCount(): void {
+    console.log(process.env.NODE_ENV);
+    count.value++;
+  }
 </script>
 
 <template>

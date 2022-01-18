@@ -1,116 +1,116 @@
 <script setup lang="ts">
-import VueTableLite from "vue3-table-lite/ts";
-import { onMounted, ref, reactive, computed, watch } from "vue";
-import { useStore } from "vuex";
-import { VContainer, VTextField } from "vuetify/components";
+  import VueTableLite from "vue3-table-lite/ts";
+  import { onMounted, ref, reactive, computed, watch } from "vue";
+  import { useStore } from "vuex";
+  import { VContainer, VTextField } from "vuetify/components";
 
-const store = useStore();
-const posts = computed(() => store.getters["posts/getPosts"]);
-const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);
-const isLoading = computed(() => store.getters["posts/getLoading"]);
+  const store = useStore();
+  const posts = computed(() => store.getters["posts/getPosts"]);
+  const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);
+  const isLoading = computed(() => store.getters["posts/getLoading"]);
 
-let checkedRowsIds = [];
+  let checkedRowsIds = [];
 
-const searchTerm = ref(""); // Search text
+  const searchTerm = ref(""); // Search text
 
-watch(searchTerm, () => {
-  doSearch("0", table.pageSize.toString(), table.sortable.order, table.sortable.sort);
-});
-
-onMounted(() => {
-  doSearch("0", "10", "title", "asc");
-});
-
-const table = reactive({
-  hasCheckbox: true,
-  isLoading: isLoading,
-  columns: [
-    {
-      label: "ID",
-      field: "_id",
-      width: "5%",
-      sortable: false,
-      isKey: true,
-      display: function (row) {
-        return row._id.slice(5, 9);
-      },
-    },
-    {
-      label: "Aut",
-      field: "author",
-      width: "5%",
-      sortable: false,
-      display: function (row) {
-        return row.author.slice(5, 9);
-      },
-    },
-    {
-      label: "Title",
-      field: "title",
-      width: "30%",
-      sortable: true,
-    },
-    {
-      label: "Content",
-      field: "content",
-      width: "55%",
-      sortable: true,
-      display: function (row) {
-        return row.content.slice(0, 71) + "...";
-      },
-    },
-    {
-      label: "Edit",
-      field: "quick",
-      width: "5%",
-      display: function (row) {
-        return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">Edit</button>`;
-      },
-    },
-  ],
-  rows: posts,
-  totalRecordCount: numberOfPosts,
-  sortable: {
-    order: "title",
-    sort: "asc",
-  },
-  messages: {
-    pagingInfo: "Dokumentumok {0}-{1}-ig (össz.:{2})",
-    pageSizeChangeLabel: "Dok. / oldal: ",
-    gotoPageLabel: "Ugrás: ",
-    noDataAvailable: "Nincsenek adatok!",
-  },
-  pageSize: 10,
-});
-const doSearch = (offset: string, limit: string, order: string, sort: string) => {
-  store.dispatch("posts/fetchPaginatedPosts", {
-    offset: offset,
-    limit: limit,
-    order: order,
-    sort: sort == "asc" ? "1" : "-1",
-    keyword: searchTerm.value,
+  watch(searchTerm, () => {
+    doSearch("0", table.pageSize.toString(), table.sortable.order, table.sortable.sort);
   });
-  table.pageSize = parseInt(limit);
-  table.sortable.order = order;
-  table.sortable.sort = sort;
-};
 
-const tableLoadingFinish = (elements) => {
-  // table.isLoading = false;
-  Array.prototype.forEach.call(elements, function (element) {
-    if (element.classList.contains("quick-btn")) {
-      element.addEventListener("click", function () {
-        console.log(element.dataset.id + " quick-btn click!!");
-      });
-    }
+  onMounted(() => {
+    doSearch("0", "10", "title", "asc");
   });
-};
 
-const updateCheckedRows = (rowsKey) => {
-  checkedRowsIds = rowsKey;
-  const number = checkedRowsIds.length;
-  console.log("Checked: " + checkedRowsIds.length + (number == 1 ? "row" : "rows"));
-};
+  const table = reactive({
+    hasCheckbox: true,
+    isLoading: isLoading,
+    columns: [
+      {
+        label: "ID",
+        field: "_id",
+        width: "5%",
+        sortable: false,
+        isKey: true,
+        display: function (row) {
+          return row._id.slice(5, 9);
+        },
+      },
+      {
+        label: "Aut",
+        field: "author",
+        width: "5%",
+        sortable: false,
+        display: function (row) {
+          return row.author.slice(5, 9);
+        },
+      },
+      {
+        label: "Title",
+        field: "title",
+        width: "30%",
+        sortable: true,
+      },
+      {
+        label: "Content",
+        field: "content",
+        width: "55%",
+        sortable: true,
+        display: function (row) {
+          return row.content.slice(0, 71) + "...";
+        },
+      },
+      {
+        label: "Edit",
+        field: "quick",
+        width: "5%",
+        display: function (row) {
+          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">Edit</button>`;
+        },
+      },
+    ],
+    rows: posts,
+    totalRecordCount: numberOfPosts,
+    sortable: {
+      order: "title",
+      sort: "asc",
+    },
+    messages: {
+      pagingInfo: "Dokumentumok {0}-{1}-ig (össz.:{2})",
+      pageSizeChangeLabel: "Dok. / oldal: ",
+      gotoPageLabel: "Ugrás: ",
+      noDataAvailable: "Nincsenek adatok!",
+    },
+    pageSize: 10,
+  });
+  const doSearch = (offset: string, limit: string, order: string, sort: string) => {
+    store.dispatch("posts/fetchPaginatedPosts", {
+      offset: offset,
+      limit: limit,
+      order: order,
+      sort: sort == "asc" ? "1" : "-1",
+      keyword: searchTerm.value,
+    });
+    table.pageSize = parseInt(limit);
+    table.sortable.order = order;
+    table.sortable.sort = sort;
+  };
+
+  const tableLoadingFinish = (elements) => {
+    // table.isLoading = false;
+    Array.prototype.forEach.call(elements, function (element) {
+      if (element.classList.contains("quick-btn")) {
+        element.addEventListener("click", function () {
+          console.log(element.dataset.id + " quick-btn click!!");
+        });
+      }
+    });
+  };
+
+  const updateCheckedRows = (rowsKey) => {
+    checkedRowsIds = rowsKey;
+    const number = checkedRowsIds.length;
+    console.log("Checked: " + checkedRowsIds.length + (number == 1 ? "row" : "rows"));
+  };
 </script>
 
 <template>
@@ -134,25 +134,25 @@ const updateCheckedRows = (rowsKey) => {
 </template>
 
 <style scoped>
-.card ::v-deep(.table .thead-dark th) {
-  color: #fff;
-  background-color: #42b983;
-  border-color: #42b983;
-}
-.card ::v-deep(.table td),
-.card ::v-deep(.table tr) {
-  border: 1px solid #42b983;
-}
-.card ::v-deep(.quick-btn) {
-  background-color: lightgray;
-  border-style: solid;
-}
+  .card ::v-deep(.table .thead-dark th) {
+    color: #fff;
+    background-color: #42b983;
+    border-color: #42b983;
+  }
+  .card ::v-deep(.table td),
+  .card ::v-deep(.table tr) {
+    border: 1px solid #42b983;
+  }
+  .card ::v-deep(.quick-btn) {
+    background-color: lightgray;
+    border-style: solid;
+  }
 
-.card ::v-deep(.table tr:nth-child(even)) {
-  background-color: #f2f2f2;
-}
+  .card ::v-deep(.table tr:nth-child(even)) {
+    background-color: #f2f2f2;
+  }
 
-.card ::v-deep(.table tr:hover) {
-  background-color: #ddd;
-}
+  .card ::v-deep(.table tr:hover) {
+    background-color: #ddd;
+  }
 </style>

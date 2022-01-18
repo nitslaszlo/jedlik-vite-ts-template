@@ -1,20 +1,26 @@
+// If you change the settings you will need to restart the ESLint server or VSCode
 module.exports = {
   root: true,
   env: {
     node: true,
+    browser: true,
     es2021: true,
     "vue/setup-compiler-macros": true,
   },
-  extends: [
-    "plugin:vue/vue3-essential",
-    "plugin:markdown/recommended",
-    "eslint:recommended",
-    "@vue/prettier",
-    "@vue/typescript/recommended",
-  ],
+  parser: "vue-eslint-parser",
   parserOptions: {
-    ecmaVersion: 2020,
+    parser: "@typescript-eslint/parser",
+    ecmaVersion: 2021,
+    sourceType: "module",
   },
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:vue/vue3-recommended",
+    "prettier",
+  ],
+  plugins: ["prettier", "@typescript-eslint"],
   globals: {
     defineProps: "readonly",
     defineEmits: "readonly",
@@ -22,7 +28,7 @@ module.exports = {
     withDefaults: "readonly",
   },
   rules: {
-    "no-console": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
+    // "no-console": "error",
   },
+  ignorePatterns: ["dist"],
 };

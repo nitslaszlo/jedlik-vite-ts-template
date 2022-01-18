@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { onMounted, computed } from "vue";
-import { useStore } from "vuex";
-import { VContainer, VTable } from "vuetify/components";
+  import { onMounted, computed } from "vue";
+  import { useStore } from "vuex";
+  import { VContainer, VTable } from "vuetify/components";
 
-const store = useStore();
-const posts = computed(() => store.getters["posts/getPosts"]);
+  const store = useStore();
+  const posts = computed(() => store.getters["posts/getPosts"]);
 
-onMounted(() => {
-  store.dispatch("posts/fetchPosts");
-});
+  onMounted(() => {
+    store.dispatch("posts/fetchPosts");
+  });
 </script>
 
 <template>

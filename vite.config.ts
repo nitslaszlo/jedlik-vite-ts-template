@@ -11,7 +11,9 @@ export default defineConfig({
   },
   plugins: [vue(), eslintPlugin()],
   define: {
-    "process.env": {},
+    "process.env": {
+      NODE_ENV: "production",
+    },
   },
   build: {
     sourcemap: true,

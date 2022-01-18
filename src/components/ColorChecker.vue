@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { VContainer, VForm, VRow, VCol, VTextField } from "vuetify/components";
-const color = ref("lightblue");
+  import { ref } from "vue";
+  import { VContainer, VForm, VRow, VCol, VTextField } from "vuetify/components";
+  const color = ref("lightblue");
 </script>
 
 <template>
@@ -10,8 +10,8 @@ const color = ref("lightblue");
       <v-row no-gutters>
         <v-col cols="12" md="6">
           <v-text-field
-            class="mx-4 my-0"
             v-model="color"
+            class="mx-4 my-0"
             prepend-inner-icon="mdi-palette"
             clearable
             label="Change the color:"
@@ -26,8 +26,8 @@ const color = ref("lightblue");
 </template>
 
 <style scoped>
-.box {
-  background-color: v-bind(color);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
+  .box {
+    background-color: v-bind(color);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
 </style>

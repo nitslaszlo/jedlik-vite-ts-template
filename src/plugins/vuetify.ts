@@ -5,7 +5,7 @@ import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
-const vuetify = createVuetify({
+export default createVuetify({
   components,
   directives,
   theme: {
@@ -66,4 +66,4 @@ const vuetify = createVuetify({
   },
 });
 
-export default vuetify;
+// export default vuetify;

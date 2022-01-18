@@ -1,99 +1,99 @@
 <script setup lang="ts">
-import Counter from "../components/Counter.vue";
-import ColorChecker from "../components/ColorChecker.vue";
-import HelloWorld from "../components/HelloWorld.vue";
-import { reactive, computed, watchEffect } from "vue";
-import { VContainer, VBtn, VCol, VRow, VAlert, VTextField } from "vuetify/components";
+  import Counter from "../components/Counter.vue";
+  import ColorChecker from "../components/ColorChecker.vue";
+  import HelloWorld from "../components/HelloWorld.vue";
+  import { reactive, computed, watchEffect } from "vue";
+  import { VContainer, VBtn, VCol, VRow, VAlert, VTextField } from "vuetify/components";
 
-interface IReactiveData {
-  felkialtojelDarab: number;
-  nev: string;
-  xek: string;
-  felkialtojelek: string;
-  napok: Array<string>;
-  inputNap: string;
-}
-
-const r = reactive<IReactiveData>({
-  felkialtojelDarab: 3,
-  nev: "Jedlik Ányos",
-  xek: "",
-  felkialtojelek: "!!!",
-  napok: ["hétfő", "kedd", "szerda"],
-  inputNap: "",
-});
-
-setInterval(() => {
-  let wrongCharPos = -1;
-  for (let i = 0; i < r.xek.length; i++) {
-    if (r.xek[i].toLowerCase() !== "x") {
-      wrongCharPos = i;
-      break;
-    }
+  interface IReactiveData {
+    felkialtojelDarab: number;
+    nev: string;
+    xek: string;
+    felkialtojelek: string;
+    napok: Array<string>;
+    inputNap: string;
   }
-  if (wrongCharPos !== -1) {
-    if (r.xek.length <= 10) {
-      r.xek = r.xek.replace(r.xek[wrongCharPos], "X");
+
+  const r = reactive<IReactiveData>({
+    felkialtojelDarab: 3,
+    nev: "Jedlik Ányos",
+    xek: "",
+    felkialtojelek: "!!!",
+    napok: ["hétfő", "kedd", "szerda"],
+    inputNap: "",
+  });
+
+  setInterval(() => {
+    let wrongCharPos = -1;
+    for (let i = 0; i < r.xek.length; i++) {
+      if (r.xek[i].toLowerCase() !== "x") {
+        wrongCharPos = i;
+        break;
+      }
+    }
+    if (wrongCharPos !== -1) {
+      if (r.xek.length <= 10) {
+        r.xek = r.xek.replace(r.xek[wrongCharPos], "X");
+      } else {
+        r.xek = r.xek.replace(r.xek[wrongCharPos], "");
+      }
     } else {
-      r.xek = r.xek.replace(r.xek[wrongCharPos], "");
+      if (r.xek.length < 10) {
+        r.xek += "X";
+      } else if (r.xek.length > 10) {
+        r.xek = r.xek.slice(0, -1);
+      }
     }
-  } else {
-    if (r.xek.length < 10) {
-      r.xek += "X";
-    } else if (r.xek.length > 10) {
-      r.xek = r.xek.slice(0, -1);
+  }, 3000);
+
+  const iNap = computed(() => r.inputNap.toLowerCase());
+
+  watchEffect(() => (r.felkialtojelek = "!".repeat(r.felkialtojelDarab)));
+
+  function onClick(művelet: string) {
+    if (művelet === "+") {
+      r.felkialtojelDarab++;
+    } else if (művelet === "-") {
+      r.felkialtojelDarab--;
     }
   }
-}, 3000);
 
-const iNap = computed(() => r.inputNap.toLowerCase());
-
-watchEffect(() => (r.felkialtojelek = "!".repeat(r.felkialtojelDarab)));
-
-function onClick(művelet: string) {
-  if (művelet === "+") {
-    r.felkialtojelDarab++;
-  } else if (művelet === "-") {
-    r.felkialtojelDarab--;
+  function napEllenorzese() {
+    const joNapok: string[] = [
+      "",
+      "hétfő",
+      "kedd",
+      "szerda",
+      "csütörtök",
+      "péntek",
+      "szombat",
+      "vasárnap",
+    ];
+    return joNapok.includes(iNap.value);
   }
-}
 
-function napEllenorzese() {
-  const joNapok: string[] = [
-    "",
-    "hétfő",
-    "kedd",
-    "szerda",
-    "csütörtök",
-    "péntek",
-    "szombat",
-    "vasárnap",
-  ];
-  return joNapok.includes(iNap.value);
-}
+  function joNapHozzadni(nap: string) {
+    return iNap.value !== "" && napEllenorzese() && !r.napok.includes(nap);
+  }
 
-function joNapHozzadni(nap: string) {
-  return iNap.value !== "" && napEllenorzese() && !r.napok.includes(nap);
-}
+  function hozzadNap(): void {
+    r.napok.push(iNap.value);
+    r.inputNap = "";
+  }
 
-function hozzadNap(): void {
-  r.napok.push(iNap.value);
-  r.inputNap = "";
-}
+  function joNapTorolni(nap: string): boolean {
+    return r.napok.includes(nap);
+  }
 
-function joNapTorolni(nap: string): boolean {
-  return r.napok.includes(nap);
-}
-
-function torolNap(): void {
-  r.napok = r.napok.filter((i) => i !== iNap.value);
-  r.inputNap = "";
-}
+  function torolNap(): void {
+    r.napok = r.napok.filter((i) => i !== iNap.value);
+    r.inputNap = "";
+  }
 </script>
 
 <template>
   <v-container fluid>
-    <hello-world msg="Hello World!" />
+    <hello-world msg="Hello World!!!" />
 
     <counter />
 
