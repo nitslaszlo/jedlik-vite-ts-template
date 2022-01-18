@@ -20,6 +20,9 @@ https://jedlik-vite-ts-template.netlify.app
 - Vuex:<br>
   https://github.com/infantiablue/vhnews
 
+- Jest:<br>
+https://github.com/sodatea/vite-jest/tree/main/examples/vue-app-ts
+
 ## Recommended Node.js and npm versions
 
 - `node -v` -> v14.18.2

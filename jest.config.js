@@ -1,7 +1,6 @@
 module.exports = {
-  moduleFileExtensions: ["js", "ts", "json", "vue"],
-  transform: {
-    "^.+\\.ts$": "ts-jest",
-    "^.+\\.vue$": "vue-jest",
-  },
+  preset: "vite-jest",
+
+  testMatch: ["**/tests/unit/**/*.spec.ts?(x)", "**/__tests__/*.ts?(x)"],
+  testEnvironment: "jest-environment-jsdom",
 };
