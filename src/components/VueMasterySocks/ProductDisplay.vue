@@ -102,7 +102,7 @@
         ></div>
 
         <button
-          class="button"
+          class="addBtn button"
           :class="{ disabledButton: !inStock }"
           :disabled="!inStock"
           @click="addToCart"
@@ -110,7 +110,7 @@
           Add to Cart
         </button>
         <button
-          class="button"
+          class="refillBtn button"
           :class="{ disabledButton: inStock }"
           :disabled="inStock"
           @click="refillStock"

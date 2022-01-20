@@ -19,13 +19,13 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types"],
-    "types": ["node", "vite/client", "@types/jest"],
+    "types": ["node", "vite/client"],
     "paths": {
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "files": ["src/env.d.ts"],
-  "include": ["src/**/**.ts", "src/**/*.vue", "src/**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/**.ts", "src/**/*.vue", "src/**/*.d.ts", "src/env.d.ts"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -95,7 +95,7 @@
   <v-container fluid>
     <hello-world msg="Hello World!!!" />
 
-    <counter />
+    <counter :initial="10" />
 
     <color-checker class="mt-3" />
 

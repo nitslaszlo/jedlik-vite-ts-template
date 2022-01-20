@@ -2,7 +2,13 @@
   import { ref, computed } from "vue";
   import { VBtn, VCard, VCardTitle, VCardText, VIcon, VSpacer } from "vuetify/components";
 
-  const count = ref(0);
+  const props = defineProps({
+    initial: {
+      type: Number,
+      required: true,
+    },
+  });
+  const count = ref(props.initial);
   const doubledCount = computed(() => count.value * 2);
 
   function addCount(): void {

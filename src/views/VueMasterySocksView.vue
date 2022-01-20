@@ -5,7 +5,7 @@
     cart: Array<number>;
     premium: boolean;
   }
-  const r = reactive<IReactiveData>({ cart: [], premium: true });
+  const r = reactive<IReactiveData>({ cart: [], premium: false });
 
   function updateCart(id: number) {
     r.cart.push(id);
