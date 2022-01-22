@@ -25,7 +25,7 @@
 
       <v-spacer />
 
-      <v-btn flat color="primary" @click="addCount"> Count Up </v-btn>
+      <v-btn flat color="primary" elevation="5" @click="addCount"> Count Up </v-btn>
     </v-card-title>
 
     <v-card-text class="pb-0 mb-0">

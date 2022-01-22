@@ -1,5 +1,10 @@
 {
   "aboutMsg": "Ez egy névjegy oldal!",
   "colorsOfTheme": "A téma színei",
-  "backToHome": "Vissza a kezdőlapra"
+  "backToHome": "Vissza a kezdőlapra",
+  "examples": "Példák",
+  "about": "Névjegy",
+  "account": "Fiók",
+  "template": "Sablon",
+  "noUser": "nincs bejelentkezve"
 }

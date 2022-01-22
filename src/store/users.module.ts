@@ -6,7 +6,7 @@ export default {
     loading: false,
     loggedIn: false,
     errorMsg: "",
-    loggedUser: "Please login or register to use all routes",
+    loggedUser: "",
   },
   getters: {
     getLoading(state) {
@@ -56,7 +56,7 @@ export default {
         })
         .catch(() => {
           // alert("Error on Authentication");
-          context.commit("setLoggedUser", "Please login or register to use all routes");
+          context.commit("setLoggedUser", "");
           context.commit("setLoggedIn", false);
           context.commit("setLoading", false);
           context.commit("setErrorMsg", "Error on Authentication");
@@ -69,13 +69,13 @@ export default {
         .then(() => {
           // console.log("Logged out");
           context.commit("setLoggedIn", false);
-          context.commit("setLoggedUser", "Please login or register to use all routes");
+          context.commit("setLoggedUser", "");
           context.commit("setLoading", false);
         })
         .catch(() => {
           // console.log("Error on Authentication");
           context.commit("setLoggedIn", false);
-          context.commit("setLoggedUser", "Please login or register to use all routes");
+          context.commit("setLoggedUser", "");
           context.commit("setLoading", false);
         });
     },

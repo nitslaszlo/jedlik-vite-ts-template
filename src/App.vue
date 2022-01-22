@@ -25,53 +25,66 @@
   const loggedUser = computed(() => store.getters["users/getLoggedUser"]);
   const notLoggedIn = computed(() => !store.getters["users/getLoggedIn"]);
 
+  let { locale, t } = useI18n({
+    inheritLocale: true,
+    useScope: "global", // Change to "local" if you want to add <i18n></i18n> locally
+  });
+
   // Search icons: https://materialdesignicons.com/
   const menuItems = ref([
     {
       icon: "mdi-home",
       text: "Home",
+      name: "",
       route: "/",
       disabled: false,
     },
     {
       icon: "mdi-soccer",
-      text: "Examples",
+      text: t("examples"),
+      name: "examples",
       route: "/examples",
       disabled: false,
     },
     {
       icon: "mdi-table",
       text: "v-table",
+      name: "",
       route: "/vtable",
       disabled: notLoggedIn,
     },
     {
       icon: "mdi-table-refresh",
       text: "vue3-table-light",
+      name: "",
       route: "/v3table",
       disabled: notLoggedIn,
     },
     {
       icon: "mdi-cart-outline",
       text: "Vue Mastery Socks",
+      name: "",
       route: "/socks",
       disabled: false,
     },
     {
       icon: "mdi-grid",
       text: "Grid demo",
+      name: "",
       route: "/grid",
       disabled: false,
     },
     {
       icon: "mdi-account",
-      text: "Account",
+      text: t("account"),
+      name: "account",
       route: "/account",
       disabled: false,
     },
     {
       icon: "mdi-information",
-      text: "About",
+      text: t("about"),
+      name: "about",
       route: "/about",
       disabled: false,
     },
@@ -80,34 +93,33 @@
     {
       icon: "mdi-github",
       text: "GitHub repository",
+      name: "",
       link: "https://github.com/nitslaszlo/jedlik-vite-ts-template",
       disabled: false,
     },
     {
       icon: "mdi-vuetify",
-      text: "Vuetify 3 home",
+      text: "Vuetify 3",
+      name: "",
       link: "https://next.vuetifyjs.com/en/getting-started/installation",
       disabled: false,
     },
   ]);
-
-  let { locale } = useI18n({
-    inheritLocale: true,
-    useScope: "global", // Change to "local" if you want to add <i18n></i18n> locally
-  });
 
   function toggleTheme() {
     theme.value = theme.value === "light" ? "dark" : "light";
   }
   function toggleLanguage() {
     locale.value = locale.value == "hu" ? "en" : "hu";
+    menuItems.value.forEach((e) => {
+      if (e.name != "") e.text = t(e.name);
+    });
   }
 </script>
 
 <template>
   <v-app :theme="theme">
     <v-navigation-drawer v-model="drawer" app>
-      <p class="text-center my-3">Routes</p>
       <v-list nav dense>
         <v-list-item
           v-for="(item, i) in menuItems"
@@ -140,7 +152,7 @@
         :color="notLoggedIn ? 'surface' : 'success'"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      Jedlik Vite TS Template - {{ loggedUser }}
+      Jedlik Vite TS {{ $t("template") }} - {{ notLoggedIn ? $t("noUser") : loggedUser }}
       <v-spacer></v-spacer>
       <v-badge :content="locale" offset-x="6" offset-y="6">
         <v-btn icon :color="notLoggedIn ? 'surface' : 'success'" @click="toggleLanguage">

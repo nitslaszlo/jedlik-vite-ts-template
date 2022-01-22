@@ -30,5 +30,5 @@ module.exports = {
   rules: {
     // "no-console": "error",
   },
-  ignorePatterns: ["dist"],
+  ignorePatterns: ["coverage", "dist", "node_modules"],
 };
