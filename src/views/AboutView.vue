@@ -1,15 +1,11 @@
 <script setup lang="ts">
   import { VAlert, VBtn, VContainer, VImg } from "vuetify/components";
+  import JedlikCimer from "/src/assets/Jedlik.png";
 </script>
 
 <template>
   <v-container class="page text-center">
-    <v-img
-      class="mx-auto"
-      max-width="150"
-      src="/src/assets/Jedlik.png"
-      transition="fab-transition"
-    />
+    <v-img class="mx-auto" max-width="150" :src="JedlikCimer" transition="fab-transition" />
     <h1>{{ $t("aboutMsg") }}</h1>
 
     <v-btn color="jedlikBlue" to="/" class="ma-3">{{ $t("backToHome") }}</v-btn>
