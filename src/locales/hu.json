@@ -6,5 +6,8 @@
   "about": "Névjegy",
   "account": "Fiók",
   "template": "Sablon",
-  "noUser": "nincs bejelentkezve"
+  "noUser": "nincs bejelentkezve",
+  "startPage": "Kezdőlap",
+  "gridDemo": "Rács demó",
+  "links": "Hivatkozások"
 }

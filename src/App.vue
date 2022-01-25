@@ -35,8 +35,8 @@
   const menuItems = ref([
     {
       icon: "mdi-home",
-      text: "Home",
-      name: "",
+      text: t("startPage"),
+      name: "startPage",
       route: "/",
       disabled: false,
     },
@@ -70,8 +70,8 @@
     },
     {
       icon: "mdi-grid",
-      text: "Grid demo",
-      name: "",
+      text: t("gridDemo"),
+      name: "gridDemo",
       route: "/grid",
       disabled: false,
     },
@@ -93,7 +93,7 @@
   const links = ref([
     {
       icon: "mdi-github",
-      text: "GitHub repository",
+      text: "GitHub",
       name: "",
       link: "https://github.com/nitslaszlo/jedlik-vite-ts-template",
       disabled: false,
@@ -133,7 +133,7 @@
           @click="drawer = !isMobileDevice"
         ></v-list-item>
       </v-list>
-      <p class="text-center my-3">Links</p>
+      <p class="text-center my-3">{{ $t("links") }}</p>
       <v-list nav dense>
         <v-list-item
           v-for="(item, i) in links"
