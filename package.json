@@ -2,13 +2,14 @@
   "name": "jedlik-vite-ts-tamplate",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite  --port 8080 --open",
+    "dev": "vite --port 8080 --open",
     "dev-clear": "vite --force --port 8080 --open",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --ignore-path .gitignore --fix",
     "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test-coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@mdi/font": "^6.5.95",
@@ -27,6 +28,7 @@
     "@typescript-eslint/parser": "^5.10.0",
     "@vitejs/plugin-vue": "^2.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",
+    "c8": "^7.11.0",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

@@ -47,7 +47,7 @@ https://linmasahiro.github.io/vue3-table-lite/
 
 ## Vite.js
 
-[Vite.js](https://vitejs.dev/) is a new modern bundler for javascript which is blazing fast and includes many sensible defaults.
+[Vite.js](https://vitejs.dev/) is a new modern dev server for javascript which is blazing fast and includes many sensible defaults.
 
 ## Vue 3
 
