@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { reactive } from "vue";
   import IReview from "./../../types/IReview";
+  import { reactive } from "vue";
 
   const emits = defineEmits(["review-submitted"]);
   const r = reactive<IReview>({

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import ReviewForm from "./ReviewForm.vue";
-  import ReviewList from "./ReviewList.vue";
   import { computed, reactive } from "vue";
   import IReview from "./../../types/IReview";
   import IVariant from "./../../types/IVariant";
+  import ReviewForm from "./ReviewForm.vue";
+  import ReviewList from "./ReviewList.vue";
 
   const images = import.meta.globEager("/src/assets/*.jpg");
 

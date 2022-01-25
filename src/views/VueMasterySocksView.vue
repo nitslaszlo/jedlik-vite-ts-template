@@ -19,7 +19,7 @@
       Vue Mastery - Intro to Vue 3 course example - composition API (script setup)
     </div>
     <div class="cart">Cart({{ r.cart.length }})</div>
-    <product-display :premium="r.premium" @add-to-cart="updateCart"></product-display>
+    <ProductDisplay :premium="r.premium" @add-to-cart="updateCart"></ProductDisplay>
   </div>
 </template>
 

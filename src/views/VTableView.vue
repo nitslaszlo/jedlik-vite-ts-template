@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { onMounted, computed } from "vue";
-  import { useStore } from "vuex";
+  import { computed, onMounted } from "vue";
   import { VContainer, VTable } from "vuetify/components";
+  import { useStore } from "vuex";
 
   const store = useStore();
   const posts = computed(() => store.getters["posts/getPosts"]);

@@ -1,21 +1,22 @@
 <script setup lang="ts">
-  import { ref, computed } from "vue";
-  import { useDisplay } from "vuetify";
-  import { useStore } from "vuex";
+  import { computed, ref } from "vue";
+
   import {
-    VMain,
     VApp,
+    VAppBar,
+    VAppBarNavIcon,
     VBadge,
     VBtn,
     VContainer,
     VList,
     VListItem,
-    VAppBar,
-    VAppBarNavIcon,
-    VSpacer,
+    VMain,
     VNavigationDrawer,
+    VSpacer,
   } from "vuetify/components";
+  import { useDisplay } from "vuetify";
   import { useI18n } from "vue-i18n";
+  import { useStore } from "vuex";
 
   const isMobileDevice = useDisplay().mobile.value;
   const drawer = ref(!isMobileDevice);

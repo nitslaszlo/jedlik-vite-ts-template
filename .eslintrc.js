@@ -28,6 +28,7 @@ module.exports = {
     withDefaults: "readonly",
   },
   rules: {
+    "sort-imports": ["error", { ignoreCase: true }],
     // "no-console": "error",
   },
   ignorePatterns: ["coverage", "dist", "node_modules"],

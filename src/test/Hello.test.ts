@@ -1,7 +1,6 @@
-import { test, expect } from "vitest";
-
-import { mount } from "@vue/test-utils";
+import { expect, test } from "vitest";
 import Hello from "../components/Hello.vue";
+import { mount } from "@vue/test-utils";
 
 test("mount component", async () => {
   expect(Hello).toBeTruthy();

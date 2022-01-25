@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import Counter from "../components/Counter.vue";
+  import { computed, reactive, watchEffect } from "vue";
+  import { VAlert, VBtn, VCol, VContainer, VRow, VTextField } from "vuetify/components";
   import ColorChecker from "../components/ColorChecker.vue";
+  import Counter from "../components/Counter.vue";
   import HelloWorld from "../components/HelloWorld.vue";
-  import { reactive, computed, watchEffect } from "vue";
-  import { VContainer, VBtn, VCol, VRow, VAlert, VTextField } from "vuetify/components";
 
   interface IReactiveData {
     felkialtojelDarab: number;
@@ -93,11 +93,11 @@
 
 <template>
   <v-container fluid>
-    <hello-world msg="Hello World!!!" />
+    <HelloWorld msg="Hello World!!!" />
 
-    <counter :initial="10" />
+    <Counter :initial="10" />
 
-    <color-checker class="mt-3" />
+    <ColorChecker class="mt-3" />
 
     <v-container class="ma-3">
       <v-row>

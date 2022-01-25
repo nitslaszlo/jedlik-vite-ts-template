@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import VueTableLite from "vue3-table-lite/ts";
-  import { onMounted, ref, reactive, computed, watch } from "vue";
-  import { useStore } from "vuex";
+  import { computed, onMounted, reactive, ref, watch } from "vue";
   import { VContainer, VTextField } from "vuetify/components";
+  import { useStore } from "vuex";
+  import VueTableLite from "vue3-table-lite/ts";
 
   const store = useStore();
   const posts = computed(() => store.getters["posts/getPosts"]);
@@ -117,7 +117,7 @@
   <v-container class="page">
     <h1 class="text-h4 ma-3">vue3-table-light</h1>
     <v-text-field v-model="searchTerm" label="Kérem a keresendő szórészletet!"></v-text-field>
-    <vue-table-lite
+    <VueTableLite
       :has-checkbox="table.hasCheckbox"
       :is-loading="table.isLoading"
       :columns="table.columns"
@@ -129,7 +129,7 @@
       @do-search="doSearch"
       @is-finished="tableLoadingFinish"
       @return-checked-rows="updateCheckedRows"
-    ></vue-table-lite>
+    ></VueTableLite>
   </v-container>
 </template>
 

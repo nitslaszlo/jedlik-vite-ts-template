@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
-import UsersModule from "./users.module";
 import PostsModule from "./posts.module";
+import UsersModule from "./users.module";
 
 export default createStore({
   modules: {
