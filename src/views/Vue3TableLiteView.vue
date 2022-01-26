@@ -1,7 +1,9 @@
 <script setup lang="ts">
   import { computed, onMounted, reactive, ref, watch } from "vue";
   import { VContainer, VTextField } from "vuetify/components";
+  import EditPost from "../components/EditPost.vue";
   import { useStore } from "vuex";
+
   import VueTableLite from "vue3-table-lite/ts";
 
   const store = useStore();
@@ -12,6 +14,8 @@
   let checkedRowsIds = [];
 
   const searchTerm = ref(""); // Search text
+  const showEditDialog = ref(false); // True if show edit post
+  const selectedPostId = ref("");
 
   watch(searchTerm, () => {
     doSearch("0", table.pageSize.toString(), table.sortable.order, table.sortable.sort);
@@ -100,7 +104,9 @@
     Array.prototype.forEach.call(elements, function (element) {
       if (element.classList.contains("quick-btn")) {
         element.addEventListener("click", function () {
-          console.log(element.dataset.id + " quick-btn click!!");
+          // console.log(element.dataset.id + " quick-btn click!!");
+          selectedPostId.value = element.dataset.id;
+          showEditDialog.value = true;
         });
       }
     });
@@ -130,6 +136,7 @@
       @is-finished="tableLoadingFinish"
       @return-checked-rows="updateCheckedRows"
     ></VueTableLite>
+    <EditPost v-model="showEditDialog" :postid="selectedPostId"></EditPost>
   </v-container>
 </template>
 
