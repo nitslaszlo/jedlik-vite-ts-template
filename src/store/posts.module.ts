@@ -33,6 +33,21 @@ export default {
     },
   },
   actions: {
+    async deletePostById(context, params) {
+      context.commit("setLoading", true);
+      $axios
+        .delete(`posts/${params.id}`)
+        .then((res) => {
+          if (res && res.data) {
+            console.log(res.data);
+          }
+          context.commit("setLoading", false);
+        })
+        .catch((error) => {
+          console.error("hiba: " + error);
+          context.commit("setLoading", false);
+        });
+    },
     async fetchPosts(context) {
       context.commit("setLoading", true);
       // await context.dispatch('fetchNumberOfPosts');

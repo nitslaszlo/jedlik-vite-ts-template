@@ -8,7 +8,7 @@
     <v-img class="mx-auto" max-width="150" :src="JedlikCimer" transition="fab-transition" />
     <h1>{{ $t("aboutMsg") }}</h1>
 
-    <v-btn color="jedlikBlue" to="/" class="ma-3">{{ $t("backToHome") }}</v-btn>
+    <v-btn class="ma-3" color="jedlikBlue" to="/">{{ $t("backToHome") }}</v-btn>
 
     <h1>{{ $t("colorsOfTheme") }}</h1>
     <v-alert color="primary">primary</v-alert>

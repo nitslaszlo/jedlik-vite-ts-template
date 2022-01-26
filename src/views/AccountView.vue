@@ -39,7 +39,7 @@
 <template>
   <v-container fluid>
     <v-row justify="center">
-      <v-col xs="12" sm="8" md="4">
+      <v-col md="4" sm="8" xs="12">
         <v-card class="elevation-12">
           <v-card-title v-if="!loggedIn">Login form <v-icon>mdi-login</v-icon></v-card-title>
           <v-card-title v-else>Logout form <v-icon>mdi-logout</v-icon></v-card-title>
@@ -47,19 +47,19 @@
             <v-form>
               <v-text-field
                 v-model="r.email"
-                name="login"
-                :label="loggedIn ? 'Logged user´s email' : 'E-mail'"
-                type="text"
                 :disabled="loggedIn"
+                :label="loggedIn ? 'Logged user´s email' : 'E-mail'"
+                name="login"
+                type="text"
               ></v-text-field>
               <v-text-field
                 v-if="!loggedIn"
                 id="password"
                 v-model="r.password"
-                name="password"
-                label="Password"
-                type="password"
                 :disabled="loggedIn"
+                label="Password"
+                name="password"
+                type="password"
               ></v-text-field>
             </v-form>
           </v-card-text>
@@ -76,7 +76,7 @@
               "
               >Login</v-btn
             >
-            <v-btn v-else color="warning" class="mt-3" @click="store.dispatch('users/logOut')"
+            <v-btn v-else class="mt-3" color="warning" @click="store.dispatch('users/logOut')"
               >Log out</v-btn
             >
           </v-card-actions>
@@ -88,7 +88,7 @@
       <v-card color="primary">
         <v-card-text>
           Please wait...
-          <v-progress-linear indeterminate color="white" class="mb-0"></v-progress-linear>
+          <v-progress-linear class="mb-0" color="white" indeterminate></v-progress-linear>
         </v-card-text>
       </v-card>
     </v-dialog>

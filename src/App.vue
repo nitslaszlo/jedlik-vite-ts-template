@@ -121,34 +121,34 @@
 <template>
   <v-app :theme="theme">
     <v-navigation-drawer v-model="drawer" app>
-      <v-list nav dense>
+      <v-list dense nav>
         <v-list-item
           v-for="(item, i) in menuItems"
           :key="i"
+          :disabled="item.disabled"
+          link
           :prepend-icon="item.icon"
           :title="item.text"
           :to="item.route"
-          :disabled="item.disabled"
-          link
           @click="drawer = !isMobileDevice"
         ></v-list-item>
       </v-list>
       <p class="text-center my-3">{{ $t("links") }}</p>
-      <v-list nav dense>
+      <v-list dense nav>
         <v-list-item
           v-for="(item, i) in links"
           :key="i"
-          :prepend-icon="item.icon"
-          :title="item.text"
-          :href="item.link"
           :disabled="item.disabled"
-          target="_blank"
+          :href="item.link"
           link
+          :prepend-icon="item.icon"
+          target="_blank"
+          :title="item.text"
           @click="drawer = !isMobileDevice"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar dark app :color="notLoggedIn ? 'surface' : 'success'">
+    <v-app-bar app :color="notLoggedIn ? 'surface' : 'success'" dark>
       <v-app-bar-nav-icon
         :color="notLoggedIn ? 'surface' : 'success'"
         @click="drawer = !drawer"
@@ -156,11 +156,11 @@
       Jedlik Vite TS {{ $t("template") }} - {{ notLoggedIn ? $t("noUser") : loggedUser }}
       <v-spacer></v-spacer>
       <v-badge :content="locale" offset-x="6" offset-y="6">
-        <v-btn icon :color="notLoggedIn ? 'surface' : 'success'" @click="toggleLanguage">
+        <v-btn :color="notLoggedIn ? 'surface' : 'success'" icon @click="toggleLanguage">
           <v-icon>mdi-comment-text-multiple</v-icon>
         </v-btn>
       </v-badge>
-      <v-btn icon class="ml-5" :color="notLoggedIn ? 'surface' : 'success'" @click="toggleTheme">
+      <v-btn class="ml-5" :color="notLoggedIn ? 'surface' : 'success'" icon @click="toggleTheme">
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
       <v-app-bar-nav-icon

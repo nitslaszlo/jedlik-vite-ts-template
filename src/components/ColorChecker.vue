@@ -13,9 +13,9 @@
           <v-text-field
             v-model="color"
             class="mx-4 my-0"
-            prepend-inner-icon="mdi-palette"
             clearable
             label="Change the color:"
+            prepend-inner-icon="mdi-palette"
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">

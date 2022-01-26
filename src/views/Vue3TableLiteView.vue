@@ -15,7 +15,7 @@
 
   const searchTerm = ref(""); // Search text
   const showEditDialog = ref(false); // True if show edit post
-  const selectedPostId = ref("");
+  const selectedPost = ref(Object);
 
   watch(searchTerm, () => {
     doSearch("0", table.pageSize.toString(), table.sortable.order, table.sortable.sort);
@@ -105,7 +105,8 @@
       if (element.classList.contains("quick-btn")) {
         element.addEventListener("click", function () {
           // console.log(element.dataset.id + " quick-btn click!!");
-          selectedPostId.value = element.dataset.id;
+          const selPost = posts.value.find((x) => x._id == element.dataset.id);
+          selectedPost.value = selPost;
           showEditDialog.value = true;
         });
       }
@@ -124,19 +125,19 @@
     <h1 class="text-h4 ma-3">vue3-table-light</h1>
     <v-text-field v-model="searchTerm" label="Kérem a keresendő szórészletet!"></v-text-field>
     <VueTableLite
+      :columns="table.columns"
       :has-checkbox="table.hasCheckbox"
       :is-loading="table.isLoading"
-      :columns="table.columns"
-      :rows="table.rows"
-      :total="table.totalRecordCount"
-      :sortable="table.sortable"
       :messages="table.messages"
       :page-size="table.pageSize"
+      :rows="table.rows"
+      :sortable="table.sortable"
+      :total="table.totalRecordCount"
       @do-search="doSearch"
       @is-finished="tableLoadingFinish"
       @return-checked-rows="updateCheckedRows"
     ></VueTableLite>
-    <EditPost v-model="showEditDialog" :postid="selectedPostId"></EditPost>
+    <EditPost v-if="showEditDialog" v-model="showEditDialog" :post="selectedPost"></EditPost>
   </v-container>
 </template>
 
