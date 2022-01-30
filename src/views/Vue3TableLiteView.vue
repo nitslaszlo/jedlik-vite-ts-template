@@ -1,7 +1,9 @@
 <script setup lang="ts">
   import { computed, onMounted, reactive, ref, watch } from "vue";
   import { VContainer, VTextField } from "vuetify/components";
+  import ConfirmDialog from "../components/ConfirmDialog.vue";
   import EditPost from "../components/EditPost.vue";
+
   import { useStore } from "vuex";
 
   import VueTableLite from "vue3-table-lite/ts";
@@ -10,20 +12,45 @@
   const posts = computed(() => store.getters["posts/getPosts"]);
   const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);
   const isLoading = computed(() => store.getters["posts/getLoading"]);
+  let refreshNeeding = false;
 
   let checkedRowsIds = [];
 
   const searchTerm = ref(""); // Search text
   const showEditDialog = ref(false); // True if show edit post
+  const showConfirmDialog = ref(false); // True if show confirm dialog
+  const resultConfirm = ref(false);
   const selectedPost = ref(Object);
+  const selectedId = ref("");
 
   watch(searchTerm, () => {
     doSearch("0", table.pageSize.toString(), table.sortable.order, table.sortable.sort);
   });
 
+  watch(isLoading, () => {
+    if (refreshNeeding && !isLoading.value) {
+      doSearch(table.offset, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
+      refreshNeeding = false;
+    }
+  });
+
   onMounted(() => {
     doSearch("0", "10", "title", "asc");
   });
+
+  function closeEditDialog() {
+    refreshNeeding = true;
+  }
+
+  function deletePost() {
+    if (resultConfirm.value) {
+      store.dispatch("posts/deletePostById", {
+        id: selectedId.value,
+      });
+    }
+    showConfirmDialog.value = false;
+    refreshNeeding = true;
+  }
 
   const table = reactive({
     hasCheckbox: true,
@@ -68,7 +95,15 @@
         field: "quick",
         width: "5%",
         display: function (row) {
-          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">Edit</button>`;
+          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn edit-btn">Edit</button>`;
+        },
+      },
+      {
+        label: "Delete",
+        field: "quick",
+        width: "5%",
+        display: function (row) {
+          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn delete-btn">Delete</button>`;
         },
       },
     ],
@@ -85,6 +120,7 @@
       noDataAvailable: "Nincsenek adatok!",
     },
     pageSize: 10,
+    offset: "0",
   });
   const doSearch = (offset: string, limit: string, order: string, sort: string) => {
     store.dispatch("posts/fetchPaginatedPosts", {
@@ -97,17 +133,23 @@
     table.pageSize = parseInt(limit);
     table.sortable.order = order;
     table.sortable.sort = sort;
+    table.offset = offset;
   };
 
   const tableLoadingFinish = (elements) => {
     // table.isLoading = false;
     Array.prototype.forEach.call(elements, function (element) {
-      if (element.classList.contains("quick-btn")) {
+      if (element.classList.contains("edit-btn")) {
         element.addEventListener("click", function () {
-          // console.log(element.dataset.id + " quick-btn click!!");
           const selPost = posts.value.find((x) => x._id == element.dataset.id);
           selectedPost.value = selPost;
           showEditDialog.value = true;
+        });
+      }
+      if (element.classList.contains("delete-btn")) {
+        element.addEventListener("click", function () {
+          selectedId.value = element.dataset.id;
+          showConfirmDialog.value = true;
         });
       }
     });
@@ -137,7 +179,18 @@
       @is-finished="tableLoadingFinish"
       @return-checked-rows="updateCheckedRows"
     ></VueTableLite>
-    <EditPost v-if="showEditDialog" v-model="showEditDialog" :post="selectedPost"></EditPost>
+    <EditPost
+      v-if="showEditDialog"
+      v-model="showEditDialog"
+      :post="selectedPost"
+      @close="closeEditDialog"
+    ></EditPost>
+    <ConfirmDialog
+      v-if="showConfirmDialog"
+      v-model="showConfirmDialog"
+      v-model:result="resultConfirm"
+      @close="deletePost"
+    />
   </v-container>
 </template>
 
@@ -162,5 +215,8 @@
 
   .card ::v-deep(.table tr:hover) {
     background-color: #ddd;
+  }
+  .edit-btn {
+    background-color: green;
   }
 </style>
