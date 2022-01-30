@@ -103,7 +103,7 @@
 
 <template>
   <v-row justify="center">
-    <v-dialog v-model="show" persistent :retain-focus="false">
+    <v-dialog v-model="show" persistent :retain-focus="false" transition="scale-transition">
       <v-card>
         <v-card-title class="text-h5"> Post: {{ post._id }} </v-card-title>
         <!-- <v-card-text>Post: {{ props.post }}</v-card-text> -->
