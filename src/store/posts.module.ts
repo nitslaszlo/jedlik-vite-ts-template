@@ -33,6 +33,24 @@ export default {
     },
   },
   actions: {
+    async newPost(context, params) {
+      context.commit("setLoading", true);
+      $axios
+        .post(`posts`, {
+          title: params.title,
+          content: params.content,
+        })
+        .then((res) => {
+          if (res && res.data) {
+            console.log(res.data);
+          }
+          context.commit("setLoading", false);
+        })
+        .catch((error) => {
+          console.error("hiba: " + error);
+          context.commit("setLoading", false);
+        });
+    },
     async editPostById(context, params) {
       context.commit("setLoading", true);
       $axios

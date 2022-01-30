@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { computed, onMounted, reactive, ref, watch } from "vue";
-  import { VContainer, VTextField } from "vuetify/components";
-  import ConfirmDialog from "../components/ConfirmDialog.vue";
+  import { VBtn, VContainer, VRow, VTextField } from "vuetify/components";
   import EditPost from "../components/EditPost.vue";
 
   import { useStore } from "vuex";
@@ -18,10 +17,7 @@
 
   const searchTerm = ref(""); // Search text
   const showEditDialog = ref(false); // True if show edit post
-  const showConfirmDialog = ref(false); // True if show confirm dialog
-  const resultConfirm = ref(false);
   const selectedPost = ref(Object);
-  const selectedId = ref("");
 
   watch(searchTerm, () => {
     doSearch("0", table.pageSize.toString(), table.sortable.order, table.sortable.sort);
@@ -39,16 +35,6 @@
   });
 
   function closeEditDialog() {
-    refreshNeeding = true;
-  }
-
-  function deletePost() {
-    if (resultConfirm.value) {
-      store.dispatch("posts/deletePostById", {
-        id: selectedId.value,
-      });
-    }
-    showConfirmDialog.value = false;
     refreshNeeding = true;
   }
 
@@ -91,19 +77,11 @@
         },
       },
       {
-        label: "Edit",
+        label: "E/D",
         field: "quick",
         width: "5%",
         display: function (row) {
-          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn edit-btn">Edit</button>`;
-        },
-      },
-      {
-        label: "Delete",
-        field: "quick",
-        width: "5%",
-        display: function (row) {
-          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn delete-btn">Delete</button>`;
+          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">E/D</button>`;
         },
       },
     ],
@@ -139,17 +117,11 @@
   const tableLoadingFinish = (elements) => {
     // table.isLoading = false;
     Array.prototype.forEach.call(elements, function (element) {
-      if (element.classList.contains("edit-btn")) {
+      if (element.classList.contains("quick-btn")) {
         element.addEventListener("click", function () {
           const selPost = posts.value.find((x) => x._id == element.dataset.id);
           selectedPost.value = selPost;
           showEditDialog.value = true;
-        });
-      }
-      if (element.classList.contains("delete-btn")) {
-        element.addEventListener("click", function () {
-          selectedId.value = element.dataset.id;
-          showConfirmDialog.value = true;
         });
       }
     });
@@ -160,12 +132,19 @@
     const number = checkedRowsIds.length;
     console.log("Checked: " + checkedRowsIds.length + (number == 1 ? "row" : "rows"));
   };
+
+  function createNewDocument() {
+    showEditDialog.value = true;
+  }
 </script>
 
 <template>
   <v-container class="page">
-    <h1 class="text-h4 ma-3">vue3-table-light</h1>
-    <v-text-field v-model="searchTerm" label="Kérem a keresendő szórészletet!"></v-text-field>
+    <v-row>
+      <h3 class="ma-3">vue3-table-light</h3>
+      <v-text-field v-model="searchTerm" label="Kérem a keresendő szórészletet!"></v-text-field>
+      <v-btn class="ml-5" color="blue darken-1" @click="createNewDocument"> New document </v-btn>
+    </v-row>
     <VueTableLite
       :columns="table.columns"
       :has-checkbox="table.hasCheckbox"
@@ -185,12 +164,6 @@
       :post="selectedPost"
       @close="closeEditDialog"
     ></EditPost>
-    <ConfirmDialog
-      v-if="showConfirmDialog"
-      v-model="showConfirmDialog"
-      v-model:result="resultConfirm"
-      @close="deletePost"
-    />
   </v-container>
 </template>
 
