@@ -13,8 +13,8 @@
   } from "vuetify/components";
   import ConfirmDialog from "./ConfirmDialog.vue";
 
-  // import { useStore } from "vuex";
-  // const store = useStore();
+  import { useStore } from "vuex";
+  const store = useStore();
 
   const props = defineProps({
     modelValue: {
@@ -44,21 +44,33 @@
   const resultConfirm = ref(false);
 
   function savePost() {
-    console.log("save post");
+    showConfirm.value = true;
   }
 
   function cancelPressed() {
     post.value.title = origTitle;
     post.value.content = origContent;
-  }
-
-  function closePressed() {
     show.value = false;
     emit("close");
   }
 
+  // function closePressed() {
+  //   show.value = false;
+  //   emit("close");
+  // }
+
   function confirmSavePost() {
-    console.log("confirm save");
+    if (resultConfirm.value) {
+      store.dispatch("posts/editPostById", {
+        id: post.value._id,
+        title: post.value.title,
+        content: post.value.content,
+      });
+      show.value = false;
+      emit("close");
+    } else {
+      showConfirm.value = false;
+    }
   }
 </script>
 
@@ -74,10 +86,14 @@
           <v-spacer></v-spacer>
           <v-btn color="green darken-1" @click="savePost"> Save </v-btn>
           <v-btn color="blue darken-1" @click="cancelPressed"> Cancel </v-btn>
-          <v-btn color="blue darken-1" @click="closePressed"> Close </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <ConfirmDialog v-model="showConfirm" v-model:result="resultConfirm" @close="confirmSavePost" />
+    <ConfirmDialog
+      v-model="showConfirm"
+      v-model:result="resultConfirm"
+      title="Save changes"
+      @close="confirmSavePost"
+    />
   </v-row>
 </template>

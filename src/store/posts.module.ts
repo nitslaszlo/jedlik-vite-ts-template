@@ -33,6 +33,24 @@ export default {
     },
   },
   actions: {
+    async editPostById(context, params) {
+      context.commit("setLoading", true);
+      $axios
+        .patch(`posts/${params.id}`, {
+          title: params.title,
+          content: params.content,
+        })
+        .then((res) => {
+          if (res && res.data) {
+            console.log(res.data);
+          }
+          context.commit("setLoading", false);
+        })
+        .catch((error) => {
+          console.error("hiba: " + error);
+          context.commit("setLoading", false);
+        });
+    },
     async deletePostById(context, params) {
       context.commit("setLoading", true);
       $axios
