@@ -33,16 +33,17 @@ export default {
     },
   },
   actions: {
-    async newPost(context, params) {
+    async createNewPost(context, params) {
       context.commit("setLoading", true);
       $axios
-        .post(`posts`, {
+        .post("posts", {
           title: params.title,
           content: params.content,
         })
         .then((res) => {
           if (res && res.data) {
-            console.log(res.data);
+            console.log(res.data.post);
+            context.commit("setNumberOfPosts", res.data.count);
           }
           context.commit("setLoading", false);
         })
@@ -75,7 +76,8 @@ export default {
         .delete(`posts/${params.id}`)
         .then((res) => {
           if (res && res.data) {
-            console.log(res.data);
+            console.log(res.data.status);
+            context.commit("setNumberOfPosts", res.data.count);
           }
           context.commit("setLoading", false);
         })
