@@ -12,7 +12,7 @@
   const posts = computed(() => store.getters["posts/getPosts"]);
   const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);
   const isLoading = computed(() => store.getters["posts/getLoading"]);
-  // let refreshNeeding = false;
+  let refreshNeeding = false;
 
   let checkedRowsIds = [];
 
@@ -25,22 +25,22 @@
     doSearch(0, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
   });
 
-  // watch(isLoading, () => {
-  //   if (refreshNeeding && !isLoading.value) {
-  //     while (table.offset >= numberOfPosts.value) {
-  //       table.offset -= table.pageSize;
-  //     }
-  //     doSearch(table.offset, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
-  //     refreshNeeding = false;
-  //   }
-  // });
+  watch(isLoading, () => {
+    if (refreshNeeding && !isLoading.value) {
+      while (table.offset >= numberOfPosts.value) {
+        table.offset -= table.pageSize;
+      }
+      doSearch(table.offset, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
+      refreshNeeding = false;
+    }
+  });
 
   onMounted(() => {
     doSearch(0, "10", "title", "asc");
   });
 
   function closeDialogs() {
-    // refreshNeeding = true;
+    refreshNeeding = true;
   }
 
   const table = reactive({
