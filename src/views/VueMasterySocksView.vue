@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import ProductDisplay from "../components/VueMasterySocks/ProductDisplay.vue";
+  import ProductDisplay from "../VueMastery_Socks/components/ProductDisplay.vue";
   import { reactive } from "vue";
   interface IReactiveData {
     cart: Array<number>;

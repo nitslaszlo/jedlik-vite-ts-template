@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { mount } from "@vue/test-utils";
-import ProductDisplay from "../components/VueMasterySocks/ProductDisplay.vue";
+import ProductDisplay from "../VueMastery_Socks/components/ProductDisplay.vue";
 
 test("mount component", async () => {
   expect(ProductDisplay).toBeTruthy();

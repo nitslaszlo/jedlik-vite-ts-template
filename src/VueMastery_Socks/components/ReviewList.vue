@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import IReview from "../../types/IReview";
+  import IReview from "../types/IReview";
   import { PropType } from "vue";
 
   defineProps({
