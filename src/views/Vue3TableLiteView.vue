@@ -12,6 +12,7 @@
   const posts = computed(() => store.getters["posts/getPosts"]);
   const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);
   const isLoading = computed(() => store.getters["posts/getLoading"]);
+  const loggedUser = computed(() => store.getters["users/getLoggedUser"]);
   let refreshNeeding = false;
 
   let checkedRowsIds = [];
@@ -36,7 +37,7 @@
   });
 
   onMounted(() => {
-    doSearch(0, "10", "title", "asc");
+    doSearch(0, "5", "title", "asc");
   });
 
   function closeDialogs() {
@@ -86,7 +87,11 @@
         field: "quick",
         width: "5%",
         display: function (row) {
-          return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">E/D</button>`;
+          if (row.author == loggedUser.value._id) {
+            return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">E/D</button>`;
+          } else {
+            return "";
+          }
         },
       },
     ],
@@ -102,8 +107,14 @@
       gotoPageLabel: " Go to: ",
       noDataAvailable: "No data available",
     },
-    pageSize: 10,
+    pageSize: 5,
     offset: 0,
+    pageOptions: [
+      { value: 5, text: 5 },
+      { value: 10, text: 10 },
+      { value: 25, text: 25 },
+      { value: 50, text: 50 },
+    ],
   });
   const doSearch = (offset: number, limit: string, order: string, sort: string) => {
     store.dispatch("posts/fetchPaginatedPosts", {
@@ -159,6 +170,7 @@
       :has-checkbox="table.hasCheckbox"
       :is-loading="table.isLoading"
       :messages="table.messages"
+      :page-options="table.pageOptions"
       :page-size="table.pageSize"
       :rows="table.rows"
       :sortable="table.sortable"

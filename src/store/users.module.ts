@@ -4,16 +4,12 @@ export default {
   namespaced: true,
   state: {
     loading: false,
-    loggedIn: false,
     errorMsg: "",
-    loggedUser: "",
+    loggedUser: null,
   },
   getters: {
     getLoading(state) {
       return state.loading;
-    },
-    getLoggedIn(state) {
-      return state.loggedIn;
     },
     getErrorMsg(state) {
       return state.errorMsg;
@@ -25,9 +21,6 @@ export default {
   mutations: {
     setLoading(state, status) {
       state.loading = status;
-    },
-    setLoggedIn(state, value) {
-      state.loggedIn = value;
     },
     setErrorMsg(state, value) {
       state.errorMsg = value;
@@ -48,16 +41,14 @@ export default {
           password: params.password,
         })
         .then((res) => {
-          console.log("Authenticated");
+          // console.log("Authenticated");
           // alert(`${res.data.name} is logged in`);
-          context.commit("setLoggedUser", res.data.name);
-          context.commit("setLoggedIn", true);
+          context.commit("setLoggedUser", res.data);
           context.commit("setLoading", false);
         })
         .catch(() => {
           // alert("Error on Authentication");
-          context.commit("setLoggedUser", "");
-          context.commit("setLoggedIn", false);
+          context.commit("setLoggedUser", null);
           context.commit("setLoading", false);
           context.commit("setErrorMsg", "Error on Authentication");
         });
@@ -68,14 +59,12 @@ export default {
         .post("auth/logout")
         .then(() => {
           // console.log("Logged out");
-          context.commit("setLoggedIn", false);
-          context.commit("setLoggedUser", "");
+          context.commit("setLoggedUser", null);
           context.commit("setLoading", false);
         })
         .catch(() => {
           // console.log("Error on Authentication");
-          context.commit("setLoggedIn", false);
-          context.commit("setLoggedUser", "");
+          context.commit("setLoggedUser", null);
           context.commit("setLoading", false);
         });
     },

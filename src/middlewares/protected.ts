@@ -6,7 +6,7 @@ export default (
   from: RouteLocationNormalized,
   next: NavigationGuardNext
 ): void => {
-  if (store.getters["users/getLoggedIn"]) {
+  if (store.getters["users/getLoggedUser"]) {
     next();
   } else {
     next("/account");

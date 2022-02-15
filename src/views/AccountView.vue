@@ -20,7 +20,7 @@
 
   const store = useStore();
 
-  const loggedIn = computed(() => store.getters["users/getLoggedIn"]);
+  const anyLoggedUser = computed(() => (store.getters["users/getLoggedUser"] ? true : false));
   const isLoading = computed(() => store.getters["users/getLoading"]);
   const errorMsg = computed(() => store.getters["users/getErrorMsg"]);
   const isErrorMsg = computed(() => store.getters["users/getErrorMsg"] != "");
@@ -41,22 +41,22 @@
     <v-row justify="center">
       <v-col md="4" sm="8" xs="12">
         <v-card class="elevation-12">
-          <v-card-title v-if="!loggedIn">Login form <v-icon>mdi-login</v-icon></v-card-title>
+          <v-card-title v-if="!anyLoggedUser">Login form <v-icon>mdi-login</v-icon></v-card-title>
           <v-card-title v-else>Logout form <v-icon>mdi-logout</v-icon></v-card-title>
           <v-card-text>
             <v-form>
               <v-text-field
                 v-model="r.email"
-                :disabled="loggedIn"
-                :label="loggedIn ? 'Logged user´s email' : 'E-mail'"
+                :disabled="anyLoggedUser"
+                :label="anyLoggedUser ? 'Logged user´s email' : 'E-mail'"
                 name="login"
                 type="text"
               ></v-text-field>
               <v-text-field
-                v-if="!loggedIn"
+                v-if="!anyLoggedUser"
                 id="password"
                 v-model="r.password"
-                :disabled="loggedIn"
+                :disabled="anyLoggedUser"
                 label="Password"
                 name="password"
                 type="password"
@@ -66,7 +66,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              v-if="!loggedIn"
+              v-if="!anyLoggedUser"
               color="success"
               @click="
                 store.dispatch('users/loginUser', {

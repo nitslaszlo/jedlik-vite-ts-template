@@ -24,7 +24,7 @@
   const theme = ref("light");
 
   const loggedUser = computed(() => store.getters["users/getLoggedUser"]);
-  const notLoggedIn = computed(() => !store.getters["users/getLoggedIn"]);
+  const notLoggedIn = computed(() => loggedUser.value == null);
 
   let { locale, t } = useI18n({
     inheritLocale: true,
@@ -153,7 +153,7 @@
         :color="notLoggedIn ? 'surface' : 'success'"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      Jedlik Vite TS {{ $t("template") }} - {{ notLoggedIn ? $t("noUser") : loggedUser }}
+      Jedlik Vite TS {{ $t("template") }} - {{ notLoggedIn ? $t("noUser") : loggedUser.name }}
       <v-spacer></v-spacer>
       <v-badge :content="locale" offset-x="6" offset-y="6">
         <v-btn :color="notLoggedIn ? 'surface' : 'success'" icon @click="toggleLanguage">
