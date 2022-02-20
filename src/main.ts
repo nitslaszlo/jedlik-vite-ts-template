@@ -1,3 +1,5 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.js";
 import App from "./App.vue";
 import { createApp } from "vue";
 import i18n from "./plugins/i18n";
