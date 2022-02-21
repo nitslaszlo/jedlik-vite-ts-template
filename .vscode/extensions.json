@@ -7,6 +7,7 @@
     "christian-kohler.path-intellisense",
     "antfu.iconify",
     "ms-edgedevtools.vscode-edge-devtools",
-    "vuetifyjs.vuetify-vscode"
+    "vuetifyjs.vuetify-vscode",
+    "johnsoncodehk.vscode-typescript-vue-plugin"
   ]
 }
