@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { computed, ref } from "vue";
+  import { IPost, postsStore } from "../store/postsStore";
   import {
     VBtn,
     VCard,
@@ -11,10 +12,10 @@
     VTextarea,
     VTextField,
   } from "vuetify/components";
+
   import ConfirmDialog from "./ConfirmDialog.vue";
 
-  import { useStore } from "vuex";
-  const store = useStore();
+  const posts = postsStore();
 
   const props = defineProps({
     modelValue: {
@@ -47,8 +48,8 @@
 
   function confirmEditPost() {
     if (resultConfirm.value) {
-      store.dispatch("posts/editPostById", {
-        id: post.value._id,
+      posts.editPostById({
+        _id: post.value._id,
         title: post.value.title,
         content: post.value.content,
       });
@@ -61,8 +62,8 @@
 
   function confirmDeletePost() {
     if (resultConfirm.value) {
-      store.dispatch("posts/deletePostById", {
-        id: post.value._id,
+      posts.deletePostById({
+        _id: post.value._id,
       });
       show.value = false;
       emit("close");

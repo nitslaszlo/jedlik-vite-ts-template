@@ -1,18 +1,20 @@
 <script setup lang="ts">
   import { computed, onMounted, reactive, ref, watch } from "vue";
+  import { IPost, postsStore } from "../store/postsStore";
   import { VBtn, VCol, VContainer, VRow, VTextField } from "vuetify/components";
   import EditPost from "../components/EditPost.vue";
   import NewPost from "../components/NewPost.vue";
 
-  import { useStore } from "vuex";
+  import { usersStore } from "../store/usersStore";
 
   import VueTableLite from "vue3-table-lite/ts";
 
-  const store = useStore();
-  const posts = computed(() => store.getters["posts/getPosts"]);
-  const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);
-  const isLoading = computed(() => store.getters["posts/getLoading"]);
-  const loggedUser = computed(() => store.getters["users/getLoggedUser"]);
+  const posts = postsStore();
+  const users = usersStore();
+  const allPosts = computed(() => posts.getPosts);
+  const numberOfPosts = computed(() => posts.getNumberOfPosts);
+  const isLoading = computed(() => posts.getLoading);
+  const loggedUser = computed(() => users.getLoggedUser);
   let refreshNeeding = false;
 
   let checkedRowsIds = [];
@@ -20,7 +22,7 @@
   const searchTerm = ref(""); // Search text
   const showNewPostDialog = ref(false); // True if show new post
   const showEditDialog = ref(false); // True if show edit post
-  const selectedPost = ref(Object);
+  const selectedPost = ref<IPost>();
 
   watch(searchTerm, () => {
     doSearch(0, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
@@ -87,7 +89,7 @@
         field: "quick",
         width: "5%",
         display: function (row) {
-          if (row.author == loggedUser.value._id) {
+          if (row.author == loggedUser.value?._id) {
             return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">E/D</button>`;
           } else {
             return "";
@@ -117,7 +119,7 @@
     ],
   });
   const doSearch = (offset: number, limit: string, order: string, sort: string) => {
-    store.dispatch("posts/fetchPaginatedPosts", {
+    posts.fetchPaginatedPosts({
       offset: offset,
       limit: limit,
       order: order,
@@ -135,7 +137,7 @@
     Array.prototype.forEach.call(elements, function (element) {
       if (element.classList.contains("quick-btn")) {
         element.addEventListener("click", function () {
-          const selPost = posts.value.find((x) => x._id == element.dataset.id);
+          const selPost = allPosts.value.find((x) => x._id == element.dataset.id);
           selectedPost.value = selPost;
           showEditDialog.value = true;
         });

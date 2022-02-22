@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-
 import AboutComp from "./VueMastery_RealWorldVue3/components/AboutComp.vue";
 import AboutView from "./views/AboutView.vue";
 import AccountView from "./views/AccountView.vue";
@@ -40,7 +39,6 @@ const routes: Array<RouteRecordRaw> = [
     path: "/v3table",
     name: "V3TableLite",
     component: Vue3TableLiteView,
-    beforeEnter: protectedRoute,
   },
   {
     path: "/socks",

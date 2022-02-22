@@ -17,8 +17,6 @@ https://jedlik-vite-ts-template.netlify.app
 - ESLint+Prettier:<br>
   https://vueschool.io/articles/vuejs-tutorials/eslint-and-prettier-with-vite-and-vue-js-3/
 
-- Vuex:<br>
-  https://github.com/infantiablue/vhnews
 
 
 ## Recommended Node.js and npm versions
@@ -88,3 +86,5 @@ Change config at `.prettierrc.js`
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 ```
+## Pinia
+https://pinia.vuejs.org/cookbook/migration-vuex.html#usage-outside-components
