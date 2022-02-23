@@ -97,7 +97,7 @@
         },
       },
     ],
-    rows: posts,
+    rows: allPosts.value,
     totalRecordCount: numberOfPosts,
     sortable: {
       order: "title",
