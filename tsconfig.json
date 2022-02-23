@@ -17,6 +17,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "noImplicitAny": false,
+    "allowJs": true,
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types"],
     "types": ["node", "vite/client"],

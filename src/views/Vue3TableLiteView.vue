@@ -1,20 +1,21 @@
 <script setup lang="ts">
   import { computed, onMounted, reactive, ref, watch } from "vue";
-  import { IPost, postsStore } from "../store/postsStore";
+  import { IPost, usePostsStore } from "../store/postsStore";
   import { VBtn, VCol, VContainer, VRow, VTextField } from "vuetify/components";
   import EditPost from "../components/EditPost.vue";
   import NewPost from "../components/NewPost.vue";
 
-  import { usersStore } from "../store/usersStore";
+  import { useUsersStore } from "../store/usersStore";
 
   import VueTableLite from "vue3-table-lite/ts";
 
-  const posts = postsStore();
-  const users = usersStore();
-  const allPosts = computed(() => posts.getPosts);
-  const numberOfPosts = computed(() => posts.getNumberOfPosts);
-  const isLoading = computed(() => posts.getLoading);
-  const loggedUser = computed(() => users.getLoggedUser);
+  const postsStore = usePostsStore();
+  const usersStore = useUsersStore();
+
+  const allPosts = computed(() => postsStore.getPosts);
+  const numberOfPosts = computed(() => postsStore.getNumberOfPosts);
+  const isLoading = computed(() => postsStore.getLoading);
+  const loggedUser = computed(() => usersStore.getLoggedUser);
   let refreshNeeding = false;
 
   let checkedRowsIds = [];
@@ -97,7 +98,7 @@
         },
       },
     ],
-    rows: allPosts.value,
+    rows: allPosts,
     totalRecordCount: numberOfPosts,
     sortable: {
       order: "title",
@@ -119,7 +120,7 @@
     ],
   });
   const doSearch = (offset: number, limit: string, order: string, sort: string) => {
-    posts.fetchPaginatedPosts({
+    postsStore.fetchPaginatedPosts({
       offset: offset,
       limit: limit,
       order: order,

@@ -22,7 +22,7 @@ interface IState {
   loggedUser: null | IUser;
 }
 
-export const usersStore = defineStore({
+export const useUsersStore = defineStore({
   id: "usersStore",
   state: (): IState => ({
     loading: false,

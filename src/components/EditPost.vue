@@ -12,10 +12,10 @@
     VTextarea,
     VTextField,
   } from "vuetify/components";
-  import { IPost, postsStore } from "../store/postsStore";
+  import { IPost, usePostsStore } from "../store/postsStore";
   import ConfirmDialog from "./ConfirmDialog.vue";
 
-  const posts = postsStore();
+  const postsStore = usePostsStore();
 
   const props = defineProps({
     modelValue: {
@@ -48,7 +48,7 @@
 
   function confirmEditPost() {
     if (resultConfirm.value) {
-      posts.editPostById({
+      postsStore.editPostById({
         _id: post.value._id,
         title: post.value.title,
         content: post.value.content,
@@ -62,7 +62,7 @@
 
   function confirmDeletePost() {
     if (resultConfirm.value) {
-      posts.deletePostById({
+      postsStore.deletePostById({
         _id: post.value._id,
       });
       show.value = false;

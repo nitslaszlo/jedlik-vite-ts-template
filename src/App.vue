@@ -16,15 +16,15 @@
   } from "vuetify/components";
   import { useDisplay } from "vuetify";
   import { useI18n } from "vue-i18n";
-  import { usersStore } from "./store/usersStore";
+  import { useUsersStore } from "./store/usersStore";
 
   const isMobileDevice = useDisplay().mobile.value;
   const drawer = ref(!isMobileDevice);
-  const users = usersStore();
+  const usersStore = useUsersStore();
   const theme = ref("light");
 
-  const loggedUser = computed(() => users.getLoggedUser);
-  const notLoggedIn = computed(() => users.getLoggedUser == null);
+  const loggedUser = computed(() => usersStore.getLoggedUser);
+  const notLoggedIn = computed(() => usersStore.getLoggedUser == null);
 
   let { locale, t } = useI18n({
     inheritLocale: true,

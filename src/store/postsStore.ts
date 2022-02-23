@@ -37,7 +37,7 @@ export interface INewPostParams {
   title: string;
 }
 
-export const postsStore = defineStore({
+export const usePostsStore = defineStore({
   id: "postsStore",
   state: (): IState => ({
     loading: false,

@@ -12,6 +12,7 @@
     "test-coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@jobinsjp/vue3-datatable": "^1.0.12",
     "@mdi/font": "^6.5.95",
     "@popperjs/core": "^2.11.2",
     "axios": "^0.26.0",
@@ -22,7 +23,7 @@
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.12",
     "vue3-table-lite": "^1.1.7-1",
-    "vuetify": "^3.0.0-alpha.12"
+    "vuetify": "^3.0.0-alpha.13"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",

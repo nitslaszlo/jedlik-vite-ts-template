@@ -1,14 +1,15 @@
 <script setup lang="ts">
   import { computed, onMounted } from "vue";
   import { VContainer, VTable } from "vuetify/components";
-  import { postsStore } from "../store/postsStore";
+  import { usePostsStore } from "../store/postsStore";
+  import { DataTable } from "@jobinsjp/vue3-datatable";
 
-  const posts = postsStore();
+  const postsStore = usePostsStore();
 
-  const allPosts = computed(() => posts.getPosts);
+  const allPosts = computed(() => postsStore.getPosts);
 
   onMounted(() => {
-    posts.fetchPosts();
+    postsStore.fetchPosts();
   });
 </script>
 
@@ -32,5 +33,6 @@
         </tbody>
       </template>
     </v-table>
+    <data-table :rows="allPosts" striped />
   </v-container>
 </template>
