@@ -22,7 +22,7 @@
   const searchTerm = ref(""); // Search text
   const showNewPostDialog = ref(false); // True if show new post
   const showEditDialog = ref(false); // True if show edit post
-  const selectedPost = ref<IPost>({});
+  const selectedPost = ref<IPost>();
 
   watch(searchTerm, () => {
     doSearch(0, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
@@ -184,7 +184,7 @@
       @return-checked-rows="updateCheckedRows"
     ></VueTableLite>
     <EditPost
-      v-if="showEditDialog"
+      v-if="showEditDialog && selectedPost"
       v-model="showEditDialog"
       :post="selectedPost"
       @close="closeDialogs"
