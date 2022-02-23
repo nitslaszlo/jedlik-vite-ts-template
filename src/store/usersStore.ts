@@ -9,22 +9,17 @@ interface IAddress {
 }
 
 interface IUser {
-  _id: string;
-  email: string;
-  name: string;
-  password: string;
-  address: null | IAddress;
+  _id?: string;
+  email?: string;
+  name?: string;
+  password?: string;
+  address?: null | IAddress;
 }
 
 interface IState {
   loading: boolean;
   errorMsg: string;
   loggedUser: null | IUser;
-}
-
-interface IParams {
-  password: string;
-  email: string;
 }
 
 export const usersStore = defineStore({
@@ -49,7 +44,7 @@ export const usersStore = defineStore({
     clearErrorMsg(): void {
       this.errorMsg = "";
     },
-    async loginUser(params: IParams): Promise<void> {
+    async loginUser(params: IUser): Promise<void> {
       this.loading = true;
       $axios
         .post("auth/login", {

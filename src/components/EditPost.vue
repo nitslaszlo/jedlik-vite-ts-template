@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { computed, ref } from "vue";
-  import { IPost, postsStore } from "../store/postsStore";
+  import { PropType, computed, ref } from "vue";
+
   import {
     VBtn,
     VCard,
@@ -12,7 +12,7 @@
     VTextarea,
     VTextField,
   } from "vuetify/components";
-
+  import { IPost, postsStore } from "../store/postsStore";
   import ConfirmDialog from "./ConfirmDialog.vue";
 
   const posts = postsStore();
@@ -24,7 +24,7 @@
       required: true,
     },
     post: {
-      type: Object,
+      type: Object as PropType<IPost>,
       required: true,
     },
   });

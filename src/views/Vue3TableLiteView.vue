@@ -22,7 +22,7 @@
   const searchTerm = ref(""); // Search text
   const showNewPostDialog = ref(false); // True if show new post
   const showEditDialog = ref(false); // True if show edit post
-  const selectedPost = ref<IPost>();
+  const selectedPost = ref<IPost>({});
 
   watch(searchTerm, () => {
     doSearch(0, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
@@ -138,8 +138,10 @@
       if (element.classList.contains("quick-btn")) {
         element.addEventListener("click", function () {
           const selPost = allPosts.value.find((x) => x._id == element.dataset.id);
-          selectedPost.value = selPost;
-          showEditDialog.value = true;
+          if (selPost) {
+            selectedPost.value = selPost;
+            showEditDialog.value = true;
+          }
         });
       }
     });

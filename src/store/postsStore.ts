@@ -22,7 +22,7 @@ interface IPaginatedParams {
   keyword: string;
 }
 
-interface IidParams {
+interface IIdParams {
   _id: string;
 }
 
@@ -94,7 +94,7 @@ export const postsStore = defineStore({
           this.loading = false;
         });
     },
-    async deletePostById(params: IidParams): Promise<void> {
+    async deletePostById(params: IIdParams): Promise<void> {
       this.loading = true;
       $axios
         .delete(`posts/${params._id}`)
