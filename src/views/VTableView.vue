@@ -2,7 +2,6 @@
   import { computed, onMounted } from "vue";
   import { VContainer, VTable } from "vuetify/components";
   import { usePostsStore } from "../store/postsStore";
-  import { DataTable } from "@jobinsjp/vue3-datatable";
 
   const postsStore = usePostsStore();
 
@@ -33,6 +32,5 @@
         </tbody>
       </template>
     </v-table>
-    <data-table :rows="allPosts" striped />
   </v-container>
 </template>
