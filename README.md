@@ -1,4 +1,4 @@
-# Vue3 + TypeScript + Vite + Vuetify3 + Vuex4 + Axios + i18n + Vitest + ESLint + Prettier
+# Vue3 + TypeScript + Vite + Vuetify3 + Pinia + Axios + i18n + Vitest + ESLint + Prettier
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite.
 The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
@@ -17,8 +17,6 @@ https://jedlik-vite-ts-template.netlify.app
 - ESLint+Prettier:<br>
   https://vueschool.io/articles/vuejs-tutorials/eslint-and-prettier-with-vite-and-vue-js-3/
 
-- Vuex:<br>
-  https://github.com/infantiablue/vhnews
 
 
 ## Recommended Node.js and npm versions
@@ -91,3 +89,5 @@ Change config at `.prettierrc.js`
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 ```
+## Pinia
+https://pinia.vuejs.org/cookbook/migration-vuex.html#usage-outside-components

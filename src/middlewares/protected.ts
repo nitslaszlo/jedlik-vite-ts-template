@@ -1,12 +1,14 @@
 import { NavigationGuardNext, RouteLocationNormalized } from "vue-router";
-import store from "./../store";
+
+import { useUsersStore } from "../store/usersStore";
 
 export default (
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
   next: NavigationGuardNext
 ): void => {
-  if (store.getters["users/getLoggedUser"]) {
+  const usersStore = useUsersStore();
+  if (usersStore.getLoggedUser) {
     next();
   } else {
     next("/account");

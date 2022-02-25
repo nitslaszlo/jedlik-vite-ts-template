@@ -1,13 +1,14 @@
 <script setup lang="ts">
   import { computed, onMounted } from "vue";
   import { VContainer, VTable } from "vuetify/components";
-  import { useStore } from "vuex";
+  import { usePostsStore } from "../store/postsStore";
 
-  const store = useStore();
-  const posts = computed(() => store.getters["posts/getPosts"]);
+  const postsStore = usePostsStore();
+
+  const allPosts = computed(() => postsStore.getPosts);
 
   onMounted(() => {
-    store.dispatch("posts/fetchPosts");
+    postsStore.fetchPosts();
   });
 </script>
 
@@ -23,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, i) in posts" :key="i">
+          <tr v-for="(item, i) in allPosts" :key="i">
             <td>{{ item._id }}</td>
             <td>{{ item.author }}</td>
             <td>{{ item.title }}</td>

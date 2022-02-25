@@ -16,14 +16,14 @@
     VSpacer,
     VTextField,
   } from "vuetify/components";
-  import { useStore } from "vuex";
+  import { useUsersStore } from "../store/usersStore";
 
-  const store = useStore();
+  const usersStore = useUsersStore();
 
-  const anyLoggedUser = computed(() => (store.getters["users/getLoggedUser"] ? true : false));
-  const isLoading = computed(() => store.getters["users/getLoading"]);
-  const errorMsg = computed(() => store.getters["users/getErrorMsg"]);
-  const isErrorMsg = computed(() => store.getters["users/getErrorMsg"] != "");
+  const anyLoggedUser = computed(() => (usersStore.getLoggedUser ? true : false));
+  const isLoading = computed(() => usersStore.getLoading);
+  const errorMsg = computed(() => usersStore.getErrorMsg);
+  const isErrorMsg = computed(() => usersStore.getErrorMsg != "");
 
   interface IReactiveData {
     email: string;
@@ -69,16 +69,14 @@
               v-if="!anyLoggedUser"
               color="success"
               @click="
-                store.dispatch('users/loginUser', {
+                usersStore.loginUser({
                   email: r.email,
                   password: r.password,
                 })
               "
               >Login</v-btn
             >
-            <v-btn v-else class="mt-3" color="warning" @click="store.dispatch('users/logOut')"
-              >Log out</v-btn
-            >
+            <v-btn v-else class="mt-3" color="warning" @click="usersStore.logOut()">Log out</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -98,7 +96,7 @@
         <v-card-title> Error </v-card-title>
         <v-card-text>{{ errorMsg }}</v-card-text>
         <v-card-actions>
-          <v-btn color="primary" text @click="store.dispatch('users/clearErrorMsg')"> Close </v-btn>
+          <v-btn color="primary" text @click="usersStore.clearErrorMsg()"> Close </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

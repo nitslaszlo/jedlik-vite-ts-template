@@ -14,14 +14,14 @@
   "dependencies": {
     "@mdi/font": "^6.5.95",
     "axios": "^0.26.0",
+    "pinia": "^2.0.11",
     "mdb-vue-ui-kit": "^1.9.0",
     "roboto-fontface": "^0.10.0",
     "vue": "^3.2.31",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.12",
     "vue3-table-lite": "^1.1.7-1",
-    "vuetify": "^3.0.0-alpha.13",
-    "vuex": "^4.0.2"
+    "vuetify": "^3.0.0-alpha.13"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",

@@ -1,18 +1,21 @@
 <script setup lang="ts">
   import { computed, onMounted, reactive, ref, watch } from "vue";
+  import { IPost, usePostsStore } from "../store/postsStore";
   import { VBtn, VCol, VContainer, VRow, VTextField } from "vuetify/components";
   import EditPost from "../components/EditPost.vue";
   import NewPost from "../components/NewPost.vue";
 
-  import { useStore } from "vuex";
+  import { useUsersStore } from "../store/usersStore";
 
   import VueTableLite from "vue3-table-lite/ts";
 
-  const store = useStore();
-  const posts = computed(() => store.getters["posts/getPosts"]);
-  const numberOfPosts = computed(() => store.getters["posts/getNumberOfPosts"]);
-  const isLoading = computed(() => store.getters["posts/getLoading"]);
-  const loggedUser = computed(() => store.getters["users/getLoggedUser"]);
+  const postsStore = usePostsStore();
+  const usersStore = useUsersStore();
+
+  const allPosts = computed(() => postsStore.getPosts);
+  const numberOfPosts = computed(() => postsStore.getNumberOfPosts);
+  const isLoading = computed(() => postsStore.getLoading);
+  const loggedUser = computed(() => usersStore.getLoggedUser);
   let refreshNeeding = false;
 
   let checkedRowsIds = [];
@@ -20,7 +23,7 @@
   const searchTerm = ref(""); // Search text
   const showNewPostDialog = ref(false); // True if show new post
   const showEditDialog = ref(false); // True if show edit post
-  const selectedPost = ref(Object);
+  const selectedPost = ref<IPost>();
 
   watch(searchTerm, () => {
     doSearch(0, table.pageSize.toString(), table.sortable.order, table.sortable.sort);
@@ -87,7 +90,7 @@
         field: "quick",
         width: "5%",
         display: function (row) {
-          if (row.author == loggedUser.value._id) {
+          if (row.author == loggedUser.value?._id) {
             return `<button type="button" data-id="${row._id}" class="is-rows-el quick-btn">E/D</button>`;
           } else {
             return "";
@@ -95,7 +98,7 @@
         },
       },
     ],
-    rows: posts,
+    rows: allPosts,
     totalRecordCount: numberOfPosts,
     sortable: {
       order: "title",
@@ -117,7 +120,7 @@
     ],
   });
   const doSearch = (offset: number, limit: string, order: string, sort: string) => {
-    store.dispatch("posts/fetchPaginatedPosts", {
+    postsStore.fetchPaginatedPosts({
       offset: offset,
       limit: limit,
       order: order,
@@ -135,9 +138,11 @@
     Array.prototype.forEach.call(elements, function (element) {
       if (element.classList.contains("quick-btn")) {
         element.addEventListener("click", function () {
-          const selPost = posts.value.find((x) => x._id == element.dataset.id);
-          selectedPost.value = selPost;
-          showEditDialog.value = true;
+          const selPost = allPosts.value.find((x) => x._id == element.dataset.id);
+          if (selPost) {
+            selectedPost.value = selPost;
+            showEditDialog.value = true;
+          }
         });
       }
     });
@@ -180,7 +185,7 @@
       @return-checked-rows="updateCheckedRows"
     ></VueTableLite>
     <EditPost
-      v-if="showEditDialog"
+      v-if="showEditDialog && selectedPost"
       v-model="showEditDialog"
       :post="selectedPost"
       @close="closeDialogs"
