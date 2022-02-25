@@ -55,6 +55,9 @@ https://linmasahiro.github.io/vue3-table-lite/
 
 [Vuetif 3 Alpha](https://next.vuetifyjs.com/en/getting-started/installation) is arguably the best component library for Vue 3 and is currently in alpha stage but will soon be ready for production. Lots of premade components will make your job as application developer easier and more fun.
 
+## MDB - Material Design for Bootstrap v5 & Vue 3 ##
+[MDB](https://mdbootstrap.com/docs/b5/vue/getting-started/installation/) is a collection of free Bootstrap templates, themes, design tools & resources.
+
 ## Add translations to locales files
 Translations are ready to go with [vue-i18](https://vue-i18n.intlify.dev/)
 Add your files to `/locales` and are you are set.
