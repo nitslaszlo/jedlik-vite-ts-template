@@ -2,6 +2,7 @@
 module.exports = {
   semi: true,
   tabWidth: 2,
+  htmlWhitespaceSensitivity: "ignore",
   useTabs: false,
   singleQuote: false,
   trailingComma: "es5",

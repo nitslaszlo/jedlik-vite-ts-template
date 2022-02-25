@@ -112,6 +112,27 @@
       link: "https://next.vuetifyjs.com/en/getting-started/installation",
       disabled: false,
     },
+    {
+      icon: "mdi-fruit-pineapple",
+      text: "Pinia",
+      name: "",
+      link: "https://pinia.vuejs.org/introduction.html",
+      disabled: false,
+    },
+    {
+      icon: "mdi-bootstrap",
+      text: "Bootstrap 5",
+      name: "",
+      link: "https://getbootstrap.com/docs/5.1/forms/overview/",
+      disabled: false,
+    },
+    {
+      icon: "mdi-responsive",
+      text: "MDB & Vue3",
+      name: "",
+      link: "https://mdbootstrap.com/docs/b5/vue/getting-started/installation/",
+      disabled: false,
+    },
   ]);
 
   function toggleTheme() {

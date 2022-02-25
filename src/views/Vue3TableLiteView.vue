@@ -163,12 +163,12 @@
   <v-container class="page">
     <v-row>
       <v-col cols="12" sm="4"><h3>vue3-table-light</h3></v-col>
-      <v-col cols="12" sm="4"
-        ><v-text-field v-model="searchTerm" label="Search"></v-text-field
-      ></v-col>
-      <v-col cols="12" sm="4"
-        ><v-btn color="blue darken-1" @click="createNewDocument"> New document </v-btn></v-col
-      >
+      <v-col cols="12" sm="4">
+        <v-text-field v-model="searchTerm" label="Search"></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-btn color="blue darken-1" @click="createNewDocument">New document</v-btn>
+      </v-col>
     </v-row>
     <VueTableLite
       :columns="table.columns"

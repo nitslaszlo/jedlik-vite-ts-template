@@ -1,9 +1,10 @@
 <script setup lang="ts">
-  import { VContainer } from "vuetify/components";
+  import { ref } from "vue";
+  const version = ref(5);
 </script>
-
 <template>
-  <v-container class="page text-center">
-    <h1 class="text-h4">{{ $t("startPage") }}</h1>
-  </v-container>
+  <div class="d-flex flex-column align-items-center justify-center" style="height: 100vh">
+    <h1 class="display-1">{{ $t("startPage") }}</h1>
+    <p>with Bootstrap {{ version }}</p>
+  </div>
 </template>

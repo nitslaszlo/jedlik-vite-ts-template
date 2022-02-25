@@ -17,6 +17,11 @@ export default defineConfig({
       NODE_ENV: "production",
     },
   },
+  server: {
+    hmr: {
+      overlay: false,
+    },
+  },
   build: {
     sourcemap: true,
   },

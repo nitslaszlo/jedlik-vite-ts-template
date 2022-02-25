@@ -17,8 +17,6 @@ https://jedlik-vite-ts-template.netlify.app
 - ESLint+Prettier:<br>
   https://vueschool.io/articles/vuejs-tutorials/eslint-and-prettier-with-vite-and-vue-js-3/
 
-
-
 ## Recommended Node.js and npm versions
 
 - `node -v` -> v14.18.2
@@ -53,20 +51,26 @@ https://linmasahiro.github.io/vue3-table-lite/
 
 [Vuetif 3 Alpha](https://next.vuetifyjs.com/en/getting-started/installation) is arguably the best component library for Vue 3 and is currently in alpha stage but will soon be ready for production. Lots of premade components will make your job as application developer easier and more fun.
 
-## MDB - Material Design for Bootstrap v5 & Vue 3 ##
+## MDB - Material Design for Bootstrap v5 & Vue 3
+
 [MDB](https://mdbootstrap.com/docs/b5/vue/getting-started/installation/) is a collection of free Bootstrap templates, themes, design tools & resources.
 
 ## Add translations to locales files
+
 Translations are ready to go with [vue-i18](https://vue-i18n.intlify.dev/)
 Add your files to `/locales` and are you are set.
 
 ## Vitest
+
 [Vitest](https://vitest.dev) A blazing fast unit-test framework for Vue3 powered by Vite.
+
 ## ESLint
+
 [Eslint](https://eslint.org/) Find and fix problems in your JavaScript code<br>
 Change your config at `.eslintrc.js`
 
 ## Prettier
+
 [Prettier](https://prettier.io/) is an opinionated code formatter<br>
 Change config at `.prettierrc.js`
 
@@ -89,5 +93,7 @@ Change config at `.prettierrc.js`
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 ```
+
 ## Pinia
+
 https://pinia.vuejs.org/cookbook/migration-vuex.html#usage-outside-components

@@ -117,12 +117,12 @@
               label="Max 10 eX"
               :rules="[(v:String) => v.length <= 10 || 'Error: max 10 X!']"
             ></v-text-field>
-            <v-alert class="ma-3" color="green" dense elevation="9" icon="mdi-import"
-              >Hello {{ r.nev }} {{ r.xek }} {{ r.felkialtojelek }}</v-alert
-            >
-            <v-alert class="ma-3" color="yellow" dense elevation="9" icon="mdi-alert-box-outline"
-              >Number of exclamation marks: {{ r.felkialtojelDarab }}</v-alert
-            >
+            <v-alert class="ma-3" color="green" dense elevation="9" icon="mdi-import">
+              Hello {{ r.nev }} {{ r.xek }} {{ r.felkialtojelek }}
+            </v-alert>
+            <v-alert class="ma-3" color="yellow" dense elevation="9" icon="mdi-alert-box-outline">
+              Number of exclamation marks: {{ r.felkialtojelDarab }}
+            </v-alert>
             <v-row class="ma-5" justify="center">
               <v-btn
                 class="mx-3"
@@ -130,16 +130,18 @@
                 :disabled="r.felkialtojelDarab == 10"
                 elevation="5"
                 @click="onClick('+')"
-                >Plus</v-btn
               >
+                Plus
+              </v-btn>
               <v-btn
                 class="mx-3"
                 color="error"
                 :disabled="r.felkialtojelDarab == 1"
                 elevation="5"
                 @click="onClick('-')"
-                >Minus</v-btn
               >
+                Minus
+              </v-btn>
             </v-row>
           </v-col>
 
@@ -164,22 +166,24 @@
                 :disabled="!joNapHozzadni(iNap)"
                 elevation="5"
                 @click="hozzadNap()"
-                >Add day</v-btn
               >
+                Add day
+              </v-btn>
               <v-btn
                 class="ma-3"
                 color="primary"
                 :disabled="!joNapTorolni(iNap)"
                 elevation="5"
                 @click="torolNap()"
-                >Delete day</v-btn
               >
+                Delete day
+              </v-btn>
             </v-row>
           </v-col>
         </v-row>
       </v-container>
 
-      <v-btn block class="mt-3" color="info" flat to="/about"> Go To About </v-btn>
+      <v-btn block class="mt-3" color="info" flat to="/about">Go To About</v-btn>
     </v-container>
   </v-form>
 </template>

@@ -13,9 +13,9 @@
     <v-row>
       <v-col v-for="n in 12" :key="n" cols="12" lg="3" md="4" sm="6">
         <v-card :color="myColors[n % 4]" dark>
-          <v-card-title class="title" primary>{{
-            "Actual breakpoint: " + useDisplay().name.value
-          }}</v-card-title>
+          <v-card-title class="title" primary>
+            {{ "Actual breakpoint: " + useDisplay().name.value }}
+          </v-card-title>
           <v-card-text>{{ lorem.slice(0, n * 23) }}</v-card-text>
         </v-card>
       </v-col>

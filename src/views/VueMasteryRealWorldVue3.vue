@@ -4,7 +4,7 @@
   <div id="app">
     <h4>Vue Mastery - Real World Vue 3 course example - composition API (script setup)</h4>
     <div id="nav">
-      <router-link :to="{ name: 'EventList' }">Events</router-link> |
+      <router-link :to="{ name: 'EventList' }">Events</router-link>
       <router-link :to="{ name: 'AboutComp' }">About</router-link>
     </div>
     <router-view />

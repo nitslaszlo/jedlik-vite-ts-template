@@ -106,7 +106,7 @@
   <v-row justify="center">
     <v-dialog v-model="show" persistent :retain-focus="false" transition="scale-transition">
       <v-card>
-        <v-card-title class="text-h5"> Post: {{ post._id }} </v-card-title>
+        <v-card-title class="text-h5">Post: {{ post._id }}</v-card-title>
         <!-- <v-card-text>Post: {{ props.post }}</v-card-text> -->
         <v-text-field v-model="post.title" class="mb-1" label="Title"></v-text-field>
         <v-textarea v-model="post.content" filled label="Content" rows="6" shaped></v-textarea>
@@ -136,7 +136,7 @@
           >
             Save
           </v-btn>
-          <v-btn color="blue-lighten-3" elevation="5" @click="showConfigForClose"> Close </v-btn>
+          <v-btn color="blue-lighten-3" elevation="5" @click="showConfigForClose">Close</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
