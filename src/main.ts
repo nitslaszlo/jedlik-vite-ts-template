@@ -1,5 +1,3 @@
-import "mdb-vue-ui-kit/css/mdb.min.css";
-
 import App from "./App.vue";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
