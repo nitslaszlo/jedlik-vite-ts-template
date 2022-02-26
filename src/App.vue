@@ -21,6 +21,9 @@
             <router-link to="/">Home</router-link>
           </li>
           <li class="nav-item mx-1">
+            <router-link to="/bootstrapvue3">Bootstrap Vue 3</router-link>
+          </li>
+          <li class="nav-item mx-1">
             <router-link to="/about">About</router-link>
           </li>
         </ul>
