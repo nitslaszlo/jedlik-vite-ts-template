@@ -16,6 +16,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "editor.quickSuggestions": {
+    "strings": true,
+  },
   "javascript.validate.enable": false,
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
