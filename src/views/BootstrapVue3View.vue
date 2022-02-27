@@ -9,6 +9,13 @@
     BCardBody,
     BListGroup,
     BImg,
+    BCardTitle,
+    BFormTextarea,
+    BCardSubTitle,
+    BListGroupItem,
+    BCardFooter,
+    BCardImg,
+    BCarouselSlide,
   } from "bootstrap-vue-3";
 
   const objectTableDefinitions = [
