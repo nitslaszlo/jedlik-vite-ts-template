@@ -1,6 +1,15 @@
 <script setup lang="ts">
   import { ref } from "vue";
-  import { BTable, BRow, BCol, BCard, BCardText, BCardBody, BListGroup } from "bootstrap-vue-3";
+  import {
+    BTable,
+    BRow,
+    BCol,
+    BCard,
+    BCardText,
+    BCardBody,
+    BListGroup,
+    BImg,
+  } from "bootstrap-vue-3";
 
   const objectTableDefinitions = [
     { key: "age", label: "Age" },
@@ -138,6 +147,39 @@
     </b-row>
   </div>
 
+  <!-- Image thumbnails -->
+  <div class="my-2">
+    <h2>Image thumbnails</h2>
+    <b-card class="bg-dark">
+      <b-row>
+        <b-col>
+          <b-img
+            alt="Image 1"
+            fluid
+            src="https://picsum.photos/250/250/?image=54"
+            thumbnail
+          ></b-img>
+        </b-col>
+        <b-col>
+          <b-img
+            alt="Image 2"
+            fluid
+            src="https://picsum.photos/250/250/?image=58"
+            thumbnail
+          ></b-img>
+        </b-col>
+        <b-col>
+          <b-img
+            alt="Image 3"
+            fluid
+            src="https://picsum.photos/250/250/?image=59"
+            thumbnail
+          ></b-img>
+        </b-col>
+      </b-row>
+    </b-card>
+  </div>
+
   <!-- Carousel -->
   <div class="my-2">
     <h2>Carousel</h2>
@@ -149,7 +191,7 @@
       img-height="480"
       img-width="1024"
       indicators
-      :interval="3000"
+      :interval="2000"
       style="text-shadow: 1px 1px 4px #333"
     >
       <!-- Text slides with image -->
@@ -183,7 +225,7 @@
     <h2>Modal</h2>
     <b-button @click="showModal = !showModal">Toggle modal v-model</b-button>
     {{ showModal }}
-    <b-modal id="exampleModal" v-model="showModal" fade size="xl" title="Modal title">
+    <b-modal id="exampleModal" v-model="showModal" fade size="xs" title="Modal title">
       This is a modal dialog.
     </b-modal>
   </div>

@@ -9,11 +9,6 @@ https://jedlik-vite-ts-template.netlify.app
 
 ## Links
 
-- Template base<br>
-  https://github.com/yooneskh/vite-tauri-template<br>
-  https://github.com/peshanghiwa/Vue3-Vite-Vuetify3-Typescript-Template<br>
-  https://github.com/antfu/vitesse
-
 - ESLint+Prettier:<br>
   https://vueschool.io/articles/vuejs-tutorials/eslint-and-prettier-with-vite-and-vue-js-3/
 
@@ -35,10 +30,6 @@ https://jedlik-vite-ts-template.netlify.app
 - Update package: `npm update package_name`
 - Uninstall package: `npm remove package_name` or `npm uninstall package_name`
 
-## vue3-table-lite
-
-https://linmasahiro.github.io/vue3-table-lite/
-
 ## Vite.js
 
 [Vite.js](https://vitejs.dev/) is a new modern dev server for javascript which is blazing fast and includes many sensible defaults.
@@ -47,18 +38,9 @@ https://linmasahiro.github.io/vue3-table-lite/
 
 [Vue.js](https://vuejs.org/) is an incremental frontend framework which is an absolute joy to work with. It has seen very impressive improvements in version 3 including Composition Api, script setup, dynamic css binding and ... .
 
-## Vuetify 3
+## Bootstrap Vue 3
 
-[Vuetif 3 Alpha](https://next.vuetifyjs.com/en/getting-started/installation) is arguably the best component library for Vue 3 and is currently in alpha stage but will soon be ready for production. Lots of premade components will make your job as application developer easier and more fun.
-
-## MDB - Material Design for Bootstrap v5 & Vue 3
-
-[MDB](https://mdbootstrap.com/docs/b5/vue/getting-started/installation/) is a collection of free Bootstrap templates, themes, design tools & resources.
-
-## Add translations to locales files
-
-Translations are ready to go with [vue-i18](https://vue-i18n.intlify.dev/)
-Add your files to `/locales` and are you are set.
+[BootstrapVue 3](https://cdmoro.github.io/bootstrap-vue-3/) Early (but lovely) implementation of Vue 3, Bootstrap 5 and Typescript.
 
 ## Vitest
 
