@@ -12,6 +12,7 @@ import VTableView from "./views/VTableView.vue";
 import Vue3TableLiteView from "./views/Vue3TableLiteView.vue";
 import VueMasteryRealWorldVue3 from "./views/VueMasteryRealWorldVue3.vue";
 import VueMasteryVuexFundamentals from "./views/VueMasteryVuexFundamentals.vue";
+import VueMasteryVuexFundamentals_EventList from "./VueMastery_Vuex_Fundamentals/components/EventList.vue";
 import VueMasterySocksView from "./views/VueMasterySocksView.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -77,7 +78,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "event",
         name: "EventList",
-        component: EventList,
+        component: VueMasteryVuexFundamentals_EventList,
       },
       {
         path: "event/:id",

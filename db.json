@@ -3,7 +3,7 @@
       {
         "id": 123,
         "category": "animal welfare",
-        "title": "Cat Adoption Day",
+        "title": "Macska Adoption Day",
         "description": "Find your new feline friend at this event.",
         "location": "Meow Town",
         "date": "January 28, 2022",
@@ -24,6 +24,16 @@
         "id": 789,
         "category": "sustainability",
         "title": "Beach Cleanup",
+        "description": "Help pick up trash along the shore.",
+        "location": "Playa Del Carmen",
+        "date": "July 22, 2022",
+        "time": "11:00",
+        "organizer": "Carey Wales"
+      },
+      {
+        "id": 100,
+        "category": "sustainability",
+        "title": "Work at home",
         "description": "Help pick up trash along the shore.",
         "location": "Playa Del Carmen",
         "date": "July 22, 2022",

@@ -43,5 +43,28 @@ export const useEventsStore = defineStore({
           throw error;
         });
     },
+    async fetchEvents() {
+      return EventService.getEvents()
+        .then((response) => {
+          this.setEvent(response.data);
+        })
+        .catch((error) => {
+          throw error;
+        });
+    },
+    async fetchEvent(id: string) {
+      const event = this.events.find((e) => e.id === id);
+      if (event) {
+        this.setEvent(event);
+      } else {
+        return EventService.getEvent(id)
+          .then((response) => {
+            this.setEvent(response.data);
+          })
+          .catch((error) => {
+            throw error;
+          });
+      }
+    },
   },
 });

@@ -1,18 +1,13 @@
 <script setup lang="ts">
   import EventCard from "./EventCard.vue";
-  import EventService from "../services/EventService";
-  import IEvent from "../types/IEvent";
-  import { ref } from "vue";
+  import { computed } from "vue";
 
-  const events = ref<Array<IEvent>>();
+  import { useEventsStore } from "../store/eventsStore";
 
-  EventService.getEvents()
-    .then((response) => {
-      events.value = response.data;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const eventsStore = useEventsStore();
+  eventsStore.fetchEvents();
+
+  const events = computed(() => eventsStore.getEvents);
 </script>
 
 <template>

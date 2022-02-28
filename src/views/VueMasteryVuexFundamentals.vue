@@ -5,8 +5,8 @@
   <div id="app">
     <h4>Vue Mastery - Vuex fundamentals course example - composition API (script setup)</h4>
     <div id="nav">
-      <router-link :to="{ name: 'EventList' }">Events</router-link>
-      <router-link :to="{ name: 'AboutComp' }">About</router-link>
+      <router-link :to="{ name: 'EventList2' }">Events</router-link>
+      <router-link :to="{ name: 'AboutComp2' }">About</router-link>
     </div>
     <router-view />
   </div>
