@@ -100,7 +100,7 @@
   const links = ref([
     {
       icon: "mdi-github",
-      text: "GitHub",
+      text: "GitHub repo",
       name: "",
       link: "https://github.com/nitslaszlo/jedlik-vite-ts-template",
       disabled: false,
@@ -119,20 +119,20 @@
       link: "https://pinia.vuejs.org/introduction.html",
       disabled: false,
     },
-    {
-      icon: "mdi-bootstrap",
-      text: "Bootstrap 5",
-      name: "",
-      link: "https://getbootstrap.com/docs/5.1/forms/overview/",
-      disabled: false,
-    },
-    {
-      icon: "mdi-responsive",
-      text: "MDB & Vue3",
-      name: "",
-      link: "https://mdbootstrap.com/docs/b5/vue/getting-started/installation/",
-      disabled: false,
-    },
+    // {
+    //   icon: "mdi-bootstrap",
+    //   text: "Bootstrap 5",
+    //   name: "",
+    //   link: "https://getbootstrap.com/docs/5.1/forms/overview/",
+    //   disabled: false,
+    // },
+    // {
+    //   icon: "mdi-responsive",
+    //   text: "MDB & Vue3",
+    //   name: "",
+    //   link: "https://mdbootstrap.com/docs/b5/vue/getting-started/installation/",
+    //   disabled: false,
+    // },
   ]);
 
   function toggleTheme() {
@@ -147,7 +147,7 @@
 </script>
 
 <template>
-  <v-app :theme="theme">
+  <v-app id="main" background-color="background" :theme="theme">
     <v-navigation-drawer v-model="drawer" app>
       <v-list dense nav>
         <v-list-item
@@ -207,7 +207,7 @@
 </template>
 
 <style>
-  #app {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
+  #main {
+    height: 100vh;
   }
 </style>

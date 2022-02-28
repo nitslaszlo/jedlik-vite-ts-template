@@ -17,6 +17,8 @@
 
   const postsStore = usePostsStore();
 
+  postsStore.loading = false;
+
   const props = defineProps({
     modelValue: {
       type: Boolean,

@@ -22,9 +22,13 @@
   #nav {
     padding: 30px;
   }
+  router-link {
+    margin: 10px;
+  }
   #nav a {
     font-weight: bold;
     color: #2c3e50;
+    margin: 5px;
   }
   #nav a.router-link-exact-active {
     color: #42b983;
