@@ -63,16 +63,23 @@
     },
     {
       icon: "mdi-cart-outline",
-      text: "Vue Mastery Socks",
+      text: "VM-Socks",
       name: "",
       route: "/socks",
       disabled: false,
     },
     {
       icon: "mdi-earth",
-      text: "Real World Vue3",
+      text: "VM-Real World Vue3",
       name: "",
       route: "/realworldvue3",
+      disabled: false,
+    },
+    {
+      icon: "mdi-state-machine",
+      text: "VM-Vuex fundamentals",
+      name: "",
+      route: "/vuexfundamentals",
       disabled: false,
     },
     {

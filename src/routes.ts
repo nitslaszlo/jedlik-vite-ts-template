@@ -11,6 +11,7 @@ import StartPageView from "./views/StartPageView.vue";
 import VTableView from "./views/VTableView.vue";
 import Vue3TableLiteView from "./views/Vue3TableLiteView.vue";
 import VueMasteryRealWorldVue3 from "./views/VueMasteryRealWorldVue3.vue";
+import VueMasteryVuexFundamentals from "./views/VueMasteryVuexFundamentals.vue";
 import VueMasterySocksView from "./views/VueMasterySocksView.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -49,6 +50,29 @@ const routes: Array<RouteRecordRaw> = [
     path: "/realworldvue3",
     name: "RealWorldVue3",
     component: VueMasteryRealWorldVue3,
+    children: [
+      {
+        path: "event",
+        name: "EventList",
+        component: EventList,
+      },
+      {
+        path: "event/:id",
+        name: "EventDetails",
+        props: true,
+        component: EventDetails,
+      },
+      {
+        path: "about",
+        name: "AboutComp",
+        component: AboutComp,
+      },
+    ],
+  },
+  {
+    path: "/vuexfundamentals",
+    name: "FuexFundamentals",
+    component: VueMasteryVuexFundamentals,
     children: [
       {
         path: "event",
