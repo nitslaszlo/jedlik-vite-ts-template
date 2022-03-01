@@ -12,7 +12,10 @@ import VTableView from "./views/VTableView.vue";
 import Vue3TableLiteView from "./views/Vue3TableLiteView.vue";
 import VueMasteryRealWorldVue3 from "./views/VueMasteryRealWorldVue3.vue";
 import VueMasteryVuexFundamentals from "./views/VueMasteryVuexFundamentals.vue";
-import VueMasteryVuexFundamentals_EventList from "./VueMastery_Vuex_Fundamentals/components/EventList.vue";
+import VueMasteryVuexFundamentalsEventList from "./VueMastery_Vuex_Fundamentals/components/EventList.vue";
+import VueMasteryVuexFundamentalsEventDetails from "./VueMastery_Vuex_Fundamentals/components/EventDetails.vue";
+import VueMasteryVuexFundamentalsAbout from "./VueMastery_Vuex_Fundamentals/components/AboutComp.vue";
+import VueMasteryVuexFundamentalsEventCreate from "./VueMastery_Vuex_Fundamentals/components/EventCreate.vue";
 import VueMasterySocksView from "./views/VueMasterySocksView.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -72,24 +75,29 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/vuexfundamentals",
-    name: "FuexFundamentals",
+    name: "VuexFundamentals",
     component: VueMasteryVuexFundamentals,
     children: [
       {
-        path: "event",
-        name: "EventList",
-        component: VueMasteryVuexFundamentals_EventList,
+        path: "vuexevent",
+        name: "VuexEventList",
+        component: VueMasteryVuexFundamentalsEventList,
       },
       {
-        path: "event/:id",
-        name: "EventDetails",
+        path: "vuexevent/:id",
+        name: "VuexEventDetails",
         props: true,
-        component: EventDetails,
+        component: VueMasteryVuexFundamentalsEventDetails,
       },
       {
-        path: "about",
-        name: "AboutComp",
-        component: AboutComp,
+        path: "vuexabout",
+        name: "VuexAboutComp",
+        component: VueMasteryVuexFundamentalsAbout,
+      },
+      {
+        path: "vuexcreate",
+        name: "VuexEventCreate",
+        component: VueMasteryVuexFundamentalsEventCreate,
       },
     ],
   },

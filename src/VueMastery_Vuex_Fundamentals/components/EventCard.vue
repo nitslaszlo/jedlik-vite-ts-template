@@ -8,7 +8,10 @@
 </script>
 
 <template>
-  <router-link class="event-link" :to="{ name: 'EventDetails', params: { id: props.event.id } }">
+  <router-link
+    class="event-link"
+    :to="{ name: 'VuexEventDetails', params: { id: props.event.id } }"
+  >
     <div v-if="props.event" class="event-card">
       <span>@{{ props.event.time }} on {{ props.event.date }}</span>
       <h4>{{ props.event.title }}</h4>

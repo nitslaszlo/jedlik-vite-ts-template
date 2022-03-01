@@ -16,9 +16,6 @@ export const useEventsStore = defineStore({
     event: null,
   }),
   getters: {
-    getUser(): string {
-      return this.user;
-    },
     getEvents(): Array<IEvent> {
       return this.events;
     },
@@ -44,27 +41,22 @@ export const useEventsStore = defineStore({
         });
     },
     async fetchEvents() {
-      return EventService.getEvents()
+      EventService.getEvents()
         .then((response) => {
-          this.setEvent(response.data);
+          this.events = response.data;
         })
         .catch((error) => {
           throw error;
         });
     },
-    async fetchEvent(id: string) {
-      const event = this.events.find((e) => e.id === id);
-      if (event) {
-        this.setEvent(event);
-      } else {
-        return EventService.getEvent(id)
-          .then((response) => {
-            this.setEvent(response.data);
-          })
-          .catch((error) => {
-            throw error;
-          });
-      }
+    async fetchEvent(id: number) {
+      EventService.getEvent(id)
+        .then((response) => {
+          this.event = response.data;
+        })
+        .catch((error) => {
+          throw error;
+        });
     },
   },
 });

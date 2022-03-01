@@ -4,9 +4,17 @@
 <template>
   <div id="app">
     <h4>Vue Mastery - Vuex fundamentals course example - composition API (script setup)</h4>
+    <h5>!!! Work only localhost !!!</h5>
+    <h5>
+      Before use, please install json-server (npm i -g json-server) and run it! (npm run
+      json-server)
+    </h5>
     <div id="nav">
-      <router-link :to="{ name: 'EventList2' }">Events</router-link>
-      <router-link :to="{ name: 'AboutComp2' }">About</router-link>
+      <router-link :to="{ name: 'VuexEventList' }">Events</router-link>
+      |
+      <router-link :to="{ name: 'VuexAboutComp' }">About</router-link>
+      |
+      <router-link :to="{ name: 'VuexEventCreate' }">Create Event</router-link>
     </div>
     <router-view />
   </div>
@@ -36,5 +44,8 @@
   }
   h4 {
     font-size: 20px;
+  }
+  h5 {
+    color: red;
   }
 </style>

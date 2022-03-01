@@ -1,7 +1,9 @@
 <script setup lang="ts">
-  import EventService from "../services/EventService";
-  import IEvent from "../types/IEvent";
-  import { ref } from "vue";
+  import { computed } from "vue";
+  import { useEventsStore } from "../store/eventsStore";
+
+  const eventsStore = useEventsStore();
+
   const props = defineProps({
     id: {
       type: String,
@@ -9,15 +11,9 @@
     },
   });
 
-  const event = ref<IEvent>();
+  eventsStore.fetchEvent(parseInt(props.id));
 
-  EventService.getEvent(props.id)
-    .then((response) => {
-      event.value = response.data;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const event = computed(() => eventsStore.getEvent);
 </script>
 
 <template>

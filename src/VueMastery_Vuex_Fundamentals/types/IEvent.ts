@@ -1,5 +1,5 @@
 export default interface IEvent {
-  id: string;
+  id: number;
   category: string;
   title: string;
   description: string;
