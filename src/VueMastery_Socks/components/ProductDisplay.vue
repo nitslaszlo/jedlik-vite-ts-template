@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { computed, reactive } from "vue";
   import IReview from "../types/IReview";
   import IVariant from "../types/IVariant";
   import ReviewForm from "./ReviewForm.vue";

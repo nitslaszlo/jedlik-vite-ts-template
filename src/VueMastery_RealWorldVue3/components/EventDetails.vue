@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import EventService from "../services/EventService";
   import IEvent from "../types/IEvent";
-  import { ref } from "vue";
   const props = defineProps({
     id: {
       type: String,

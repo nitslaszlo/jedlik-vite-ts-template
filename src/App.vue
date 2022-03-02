@@ -1,19 +1,4 @@
 <script setup lang="ts">
-  import { computed, ref } from "vue";
-
-  import {
-    VApp,
-    VAppBar,
-    VAppBarNavIcon,
-    VBadge,
-    VBtn,
-    VContainer,
-    VList,
-    VListItem,
-    VMain,
-    VNavigationDrawer,
-    VSpacer,
-  } from "vuetify/components";
   import { useDisplay } from "vuetify";
   import { useI18n } from "vue-i18n";
   import { useUsersStore } from "./store/usersStore";

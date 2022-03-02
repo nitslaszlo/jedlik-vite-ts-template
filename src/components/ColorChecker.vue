@@ -1,7 +1,4 @@
 <script setup lang="ts">
-  import { VCol, VContainer, VForm, VRow, VTextField } from "vuetify/components";
-  import { ref } from "vue";
-
   const color = ref("lightblue");
 </script>
 

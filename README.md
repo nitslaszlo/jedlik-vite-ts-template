@@ -51,6 +51,10 @@ https://linmasahiro.github.io/vue3-table-lite/
 
 [Vuetif 3 Alpha](https://next.vuetifyjs.com/en/getting-started/installation) is arguably the best component library for Vue 3 and is currently in alpha stage but will soon be ready for production. Lots of premade components will make your job as application developer easier and more fun.
 
+
+## Pinia
+[Pinia](https://pinia.vuejs.org/cookbook/migration-vuex.html#usage-outside-components) is a store library for Vue, it allows you to share a state across components/pages.
+
 ## Add translations to locales files
 
 Translations are ready to go with [vue-i18](https://vue-i18n.intlify.dev/)
@@ -59,6 +63,11 @@ Add your files to `/locales` and are you are set.
 ## Vitest
 
 [Vitest](https://vitest.dev) A blazing fast unit-test framework for Vue3 powered by Vite.
+
+## Vue Global Api
+
+[Vue Global Api](https://github.com/antfu/vue-global-api) globally registers commonly used composition api functions such as ref, reactive and ... . makes your script setup sections cleaner.
+
 
 ## ESLint
 
@@ -90,6 +99,3 @@ Change config at `.prettierrc.js`
     },
 ```
 
-## Pinia
-
-https://pinia.vuejs.org/cookbook/migration-vuex.html#usage-outside-components

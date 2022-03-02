@@ -1,16 +1,4 @@
 <script setup lang="ts">
-  import { computed, ref } from "vue";
-  import {
-    VBtn,
-    VCard,
-    VCardActions,
-    VCardTitle,
-    VDialog,
-    VRow,
-    VSpacer,
-    VTextarea,
-    VTextField,
-  } from "vuetify/components";
   import ConfirmDialog from "./ConfirmDialog.vue";
   import { usePostsStore } from "../store/postsStore";
 

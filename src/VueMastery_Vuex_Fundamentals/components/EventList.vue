@@ -1,7 +1,5 @@
 <script setup lang="ts">
   import EventCard from "./EventCard.vue";
-  import { computed } from "vue";
-
   import { useEventsStore } from "../store/eventsStore";
 
   const eventsStore = useEventsStore();

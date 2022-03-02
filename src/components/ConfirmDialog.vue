@@ -1,16 +1,4 @@
 <script setup lang="ts">
-  import {
-    VBtn,
-    VCard,
-    VCardActions,
-    VCardText,
-    VCardTitle,
-    VDialog,
-    VRow,
-    VSpacer,
-  } from "vuetify/components";
-  import { computed } from "vue";
-
   const props = defineProps({
     modelValue: {
       type: Boolean,

@@ -14,6 +14,12 @@ module.exports = {
     sourceType: "module",
   },
   extends: [
+    "vue-global-api/ref",
+    "vue-global-api/reactive",
+    "vue-global-api/computed",
+    "vue-global-api/watch",
+    "vue-global-api/watchEffect",
+    "vue-global-api/onMounted",
     "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
     "plugin:prettier/recommended",

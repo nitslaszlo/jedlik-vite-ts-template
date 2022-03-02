@@ -3,6 +3,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
+import vuetify from "@vuetify/vite-plugin";
 
 export default defineConfig({
   resolve: {
@@ -10,11 +11,14 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    vuetify({
+      autoImport: true,
+    }),
+  ],
   define: {
-    "process.env": {
-      NODE_ENV: "production",
-    },
+    "process.env": {},
   },
   build: {
     sourcemap: true,
@@ -22,20 +26,5 @@ export default defineConfig({
   test: {
     environment: "jsdom",
   },
-  css: {
-    postcss: {
-      plugins: [
-        {
-          postcssPlugin: "internal:charset-removal",
-          AtRule: {
-            charset: (atRule) => {
-              if (atRule.name === "charset") {
-                atRule.remove();
-              }
-            },
-          },
-        },
-      ],
-    },
-  },
+  css: {},
 });

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { computed, reactive, watchEffect } from "vue";
-  import { VAlert, VBtn, VCol, VContainer, VForm, VRow, VTextField } from "vuetify/components";
   import ColorChecker from "../components/ColorChecker.vue";
   import Counter from "../components/Counter.vue";
   import HelloWorld from "../components/HelloWorld.vue";

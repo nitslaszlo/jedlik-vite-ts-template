@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  import { computed, onMounted, reactive, ref, watch } from "vue";
   import { IPost, usePostsStore } from "../store/postsStore";
-  import { VBtn, VCol, VContainer, VRow, VTextField } from "vuetify/components";
   import EditPost from "../components/EditPost.vue";
   import NewPost from "../components/NewPost.vue";
 

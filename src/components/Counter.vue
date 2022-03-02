@@ -1,7 +1,4 @@
 <script setup lang="ts">
-  import { computed, ref } from "vue";
-  import { VBtn, VCard, VCardText, VCardTitle, VIcon, VSpacer } from "vuetify/components";
-
   const props = defineProps({
     initial: {
       type: Number,

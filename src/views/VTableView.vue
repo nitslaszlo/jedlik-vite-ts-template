@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { computed, onMounted } from "vue";
-  import { VContainer, VTable } from "vuetify/components";
   import { usePostsStore } from "../store/postsStore";
 
   const postsStore = usePostsStore();
