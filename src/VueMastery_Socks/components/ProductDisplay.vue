@@ -118,8 +118,8 @@
         </button>
       </div>
     </div>
-    <review-list v-if="r.reviews.length" :reviews="r.reviews"></review-list>
-    <review-form @review-submitted="addReview"></review-form>
+    <ReviewList v-if="r.reviews.length" :reviews="r.reviews" />
+    <ReviewForm @review-submitted="addReview" />
   </div>
 </template>
 
