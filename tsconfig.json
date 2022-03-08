@@ -2,6 +2,7 @@
   "compilerOptions": {
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,

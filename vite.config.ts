@@ -3,7 +3,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
-import vuetify from "@vuetify/vite-plugin";
+import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 
 export default defineConfig({
   resolve: {
@@ -12,9 +12,10 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue(),
-    vuetify({
-      autoImport: true,
+    vue({ template: { transformAssetUrls } }),
+    quasar({
+      autoImportComponentCase: "pascal",
+      sassVariables: "src/quasar-variables.sass",
     }),
   ],
   define: {
