@@ -4,6 +4,7 @@ import { createPinia } from "pinia";
 import i18n from "./plugins/i18n";
 import routes from "./routes";
 import { Quasar } from "quasar";
+import quasarLang from "quasar/lang/hu";
 import quasarIconSet from "quasar/icon-set/mdi-v6";
 
 // Import icon libraries; you can choose different ones!
@@ -16,8 +17,8 @@ import "@quasar/extras/mdi-v6/mdi-v6.css";
 // import @quasar/extras/animate/fadeOut.css
 
 // Import Quasar css
-// import "quasar/src/css/index.sass";
-import "quasar/dist/quasar.css";
+import "quasar/src/css/index.sass";
+// import "quasar/dist/quasar.css";
 
 import "vue-global-api/ref";
 import "vue-global-api/reactive";
@@ -32,6 +33,7 @@ app.use(i18n);
 app.use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
   iconSet: quasarIconSet,
+  lang: quasarLang,
   /*
     config: {
       brand: {
